@@ -12,12 +12,11 @@ export default {
 };
 </script>
 <style lang="stylus">
-#view, #wrapper {
+#app, #view, #wrapper {
   position: absolute;
   inset: 0;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: #000;
 }
 </style>

@@ -3,6 +3,10 @@
     overscroll-behavior: none;
 }
 
+:root {
+    --bg: #bfd1aa;
+}
+
 html {
     overflow: hidden;
 }
@@ -11,16 +15,13 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    background: var(--bg);
 }
 
 @media(min-width: 1024px) {
     * {
         cursor: none !important;
     }
-}
-
-:root {
-    --bg: #aa0602;
 }
 
 ul {
@@ -31,26 +32,6 @@ button:focus {
     outline: none;
 }
 
-.w-100 {
-    width: 100%;
-}
-
-.h-100 {
-    height: 100%;
-}
-
-.position-relative {
-    position: relative !important;
-}
-
-.position-absolute {
-    position: absolute !important;
-}
-
 ::-webkit-scrollbar {
     width: 0px;
-}
-
-.hidden {
-    visibility: hidden;
 }
