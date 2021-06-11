@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <custom-cursor/>
     <v-app id="wrapper">
       <router-view id="view" />
     </v-app>
@@ -7,8 +8,12 @@
 </template>
 
 <script>
+import CustomCursor from "@/components/CustomCursor"
 export default {
   name: "App",
+  components:{
+    CustomCursor
+  }
 };
 </script>
 <style lang="stylus">

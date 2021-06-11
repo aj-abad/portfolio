@@ -1,0 +1,20 @@
+  /* /* @font-face {
+      font-family: 'ivy mode';
+      src: url('IvyMode-light.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+  } */
+  
+  @font-face {
+      font-family: 'ivy mode';
+      src: url('IvyMode-Light.woff') format('woff');
+      font-weight: lighter;
+      font-style: normal;
+  }
+  
+  .display {
+      font-family: "ivy mode";
+      font-weight: lighter;
+      line-height: 1.25em;
+      white-space: nowrap;
+  }
