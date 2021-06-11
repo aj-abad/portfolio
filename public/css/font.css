@@ -12,6 +12,20 @@
       font-style: normal;
   }
   
+  @font-face {
+      font-family: 'roc grotesk';
+      src: url('roc_grotesk_light.woff') format('woff');
+      font-weight: lighter;
+      font-style: normal;
+  }
+  
+  @font-face {
+      font-family: 'roc grotesk';
+      src: url('roc_grotesk_regular.woff') format('woff');
+      font-weight: lighter;
+      font-style: normal;
+  }
+  
   .display {
       font-family: "ivy mode";
       font-weight: lighter;

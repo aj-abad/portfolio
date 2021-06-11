@@ -1,10 +1,9 @@
 <template>
-  <header id="main-header" class="h-100 w-100 pa-16">
-    <h1 class="display hero mb-6" v-html="htmlText"></h1>
-    <p class="lead" style="transform: scaleX(2); filter: blur(20px)">
-      Creating unique web solutions for <span>just about everyone.</span>
+  <header id="main-header" class="h-100vh w-100vw pa-16">
+    <h1 class="display hero mb-8" v-html="htmlText" data-scroll data-scroll-speed="-1"></h1>
+    <p class="lead" style="">
+      Unique web solutions for <span>just about anyone.</span>
     </p>
-
   </header>
 </template>
 
@@ -20,7 +19,7 @@ export default {
         "startups",
         "e-commerce stores",
         "hobbyists",
-        "school projects",
+        "thesis projects",
         "just about anyone.",
       ],
     };

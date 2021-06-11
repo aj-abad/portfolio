@@ -2,7 +2,7 @@
   <div class="position-absolute pointer-events-none">
     <div
       class="position-absolute"
-      style="z-index: 10; width: 25vmin; height: 25vmin"
+      style="z-index: 10; width: 25vmin; height: 25vmin; opacity: 0"
       :style="slowFollowCursor"
     >
       <div class="h-100 w-100 spinner-container">
@@ -72,15 +72,19 @@ export default {
   },
   computed: {
     followCursor() {
-      return `transform: translateX(${
+      let transform = `transform: translateX(${
         this.position.x - this.center
-      }px) translateY(${this.position.y - this.center}px)`;
+      }px) translateY(${this.position.y - this.center}px)`
+      return transform;
     },
     slowFollowCursor() {
       return `transform: translateX(${
         this.slowPosition.x - this.center
       }px) translateY(${this.slowPosition.y - this.center}px)`;
     },
+    speedTransform(){
+      return null
+    }
   },
 };
 </script>
