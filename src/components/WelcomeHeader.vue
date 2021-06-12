@@ -1,5 +1,5 @@
 <template>
-  <header id="main-header" class="h-100vh w-100vw pa-16 d-flex align-center">
+  <header id="main-header" class="h-100vh w-100vw pa-16 d-flex align-center" data-scroll :data-scroll-speed="scrollSpeed">
     <div>
       <h1
         class="display hero mb-8"
@@ -45,7 +45,7 @@ export default {
         "startups.",
         "e-commerce stores.",
         "thesis projects.",
-        "<span class='display' style='font-weight: bold'>just about anyone.</span>",
+        "<span class='display' style='font-weight: bold; font-style: italic'>just about anyone.</span>",
       ],
       clientIndex: 0,
       frameInterval: 24,
@@ -69,6 +69,9 @@ export default {
     leadTextStyle() {
       return `opacity: ${this.leadText.opacity}; filter: blur(${this.leadText.blur}px); transform: translateY(${this.leadText.translate}px)`;
     },
+    scrollSpeed(){
+      return -window.innerWidth /500
+    }
   },
   mounted() {
     const deez = this;
@@ -169,7 +172,7 @@ export default {
   filter: blur(5px);
 }
 
-@media (max-width: 1365px) {
+@media (max-width: 1366px) {
   .hero {
     font-size: 8rem;
   }

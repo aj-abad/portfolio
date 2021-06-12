@@ -1,8 +1,13 @@
 <template>
-  <div class="position-absolute pointer-events-none" :class="{ 'on-link': isOnLink }">
+  <div
+    class="position-absolute pointer-events-none"
+    :class="{ 'on-link': isOnLink }"
+    ref="main"
+    style="opacity: 0"
+  >
     <div
-      class="position-absolute "
-      style="z-index: 10; width: 25vmin; height: 25vmin;"
+      class="position-absolute"
+      style="z-index: 10; width: 25vmin; height: 25vmin"
       :style="slowFollowCursor"
     >
       <div class="h-100 w-100 spinner-container">
@@ -32,6 +37,7 @@ export default {
   },
   data() {
     return {
+      isInitialized: false,
       center: 0,
       delta: {
         x: 0,
@@ -57,23 +63,25 @@ export default {
     window.addEventListener("mousemove", (e) => {
       this.mouse.x = e.x;
       this.mouse.y = e.y;
-      this.isOnLink = e.path.filter((el) => el.tagName === "A" || el.tagName === "BUTTON").length > 0;
-    });
-
-    gsap.ticker.add(() => {
-      const dt = 1.0 - Math.pow(1.0 - 0.2, gsap.ticker.deltaRatio());
-      this.position.x += (this.mouse.x - this.position.x) * dt;
-      this.position.y += (this.mouse.y - this.position.y) * dt;
-      const slowDelta = 1.0 - Math.pow(1.0 - 0.125, gsap.ticker.deltaRatio());
-      this.slowPosition.x += (this.mouse.x - this.slowPosition.x) * slowDelta;
-      this.slowPosition.y += (this.mouse.y - this.slowPosition.y) * slowDelta;
+      this.isOnLink =
+        e.path.filter((el) => el.tagName === "A" || el.tagName === "BUTTON")
+          .length > 0;
+      if (!this.isInitialized) {
+        this.isInitialized = true;
+        this.position.x = e.x;
+        this.position.y = e.y;
+        this.slowPosition.x = e.x;
+        this.slowPosition.y = e.y;
+        this.$refs.main.style.opacity = 1
+        this.tickerInit();
+      }
     });
   },
   computed: {
     followCursor() {
       let transform = `transform: translateX(${
         this.position.x - this.center
-      }px) translateY(${this.position.y - this.center}px)`
+      }px) translateY(${this.position.y - this.center}px)`;
       return transform;
     },
     slowFollowCursor() {
@@ -81,9 +89,21 @@ export default {
         this.slowPosition.x - this.center
       }px) translateY(${this.slowPosition.y - this.center}px)`;
     },
-    speedTransform(){
-      return null
-    }
+    speedTransform() {
+      return null;
+    },
+  },
+  methods: {
+    tickerInit() {
+      gsap.ticker.add(() => {
+        const dt = 1.0 - Math.pow(1.0 - 0.2, gsap.ticker.deltaRatio());
+        this.position.x += (this.mouse.x - this.position.x) * dt;
+        this.position.y += (this.mouse.y - this.position.y) * dt;
+        const slowDelta = 1.0 - Math.pow(1.0 - 0.125, gsap.ticker.deltaRatio());
+        this.slowPosition.x += (this.mouse.x - this.slowPosition.x) * slowDelta;
+        this.slowPosition.y += (this.mouse.y - this.slowPosition.y) * slowDelta;
+      });
+    },
   },
 };
 </script>
@@ -98,14 +118,12 @@ export default {
 }
 
 #spinner {
-  height: 15vmin
-  width @height
-  transform: translateX(calc(-50% + 4.5vmin/2)) translateY(calc(-50% + 4.5vmin/2));
+  height: 15vmin;
+  width: @height;
+  transform: translateX(calc(-50% + 4.5vmin / 2)) translateY(calc(-50% + 4.5vmin / 2));
 }
 
-
-.visible{
-  opacity: 1
+.visible {
+  opacity: 1;
 }
-
 </style>

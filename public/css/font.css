@@ -14,9 +14,16 @@
   
   @font-face {
       font-family: 'ivy mode';
-      src: url('IvyMode-Italic.woff') format('woff');
+      src: url('IvyMode-Regular.woff') format('woff');
       font-weight: bold;
       font-style: normal;
+  }
+  
+  @font-face {
+      font-family: 'ivy mode';
+      src: url('IvyMode-Italic.woff') format('woff');
+      font-weight: bold;
+      font-style: italic;
   }
   
   @font-face {

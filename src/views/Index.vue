@@ -4,31 +4,7 @@
       <welcome-header />
       <div id="sticky-target" class="d-flex" style="width: 200vw">
         <section class="h-100vh w-100vw">
-          <nav
-            class="position-relative w-100 pa-8 d-flex"
-            data-scroll-target="#sticky-target"
-            data-scroll
-            data-scroll-sticky
-          >
-            <img src="img/logo.svg" class="mr-16" style="width: 16rem" />
-            <ul class="d-flex flex-grow-1 align-center justify-around">
-              <li class="nav-list-item mb-6 mr-8">
-                <a href="#" class="nav-link">
-                  About
-                </a>
-              </li>
-              <li class="nav-list-item mb-6 mr-8">
-                <a href="#" class="nav-link">
-                  Work
-                </a>
-              </li>
-              <li class="nav-list-item mb-6 mr-8">
-                <a href="#" class="nav-link">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <Navbar/>
         </section>
         <section class="h-100vh w-100vw pa-16">
           <h1 v-for="i in 100" :key="i">Test</h1>
@@ -41,6 +17,7 @@
 <script>
 import LocomotiveScroll from "locomotive-scroll";
 import WelcomeHeader from "@/components/WelcomeHeader";
+import Navbar from "@/components/Navbar"
 export default {
   name: "Home",
   data() {
@@ -49,7 +26,7 @@ export default {
     };
   },
   components: {
-    WelcomeHeader,
+    WelcomeHeader, Navbar
   },
   mounted() {
     setTimeout(() => {
@@ -74,8 +51,5 @@ export default {
 <style lang="stylus" scoped>
 #scroll-container {
   display: flex;
-}
-nav{
-  font-size 2rem
 }
 </style>
