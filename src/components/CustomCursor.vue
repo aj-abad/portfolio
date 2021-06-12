@@ -1,18 +1,17 @@
 <template>
-  <div class="position-absolute pointer-events-none">
+  <div class="position-absolute pointer-events-none" :class="{ 'on-link': isOnLink }">
     <div
-      class="position-absolute"
-      style="z-index: 10; width: 25vmin; height: 25vmin; opacity: 0"
+      class="position-absolute "
+      style="z-index: 10; width: 25vmin; height: 25vmin;"
       :style="slowFollowCursor"
     >
       <div class="h-100 w-100 spinner-container">
-        <spinner class="w-100 h-100" />
+        <spinner class="w-100 h-100" id="spinner" />
       </div>
     </div>
 
     <svg
       id="cursor"
-      :class="{ 'on-link': isOnLink }"
       aria-hidden="true"
       ref="cursor"
       xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +57,7 @@ export default {
     window.addEventListener("mousemove", (e) => {
       this.mouse.x = e.x;
       this.mouse.y = e.y;
-      this.isOnLink = e.path.filter((el) => el.tagName === "BUTTON").length > 0;
+      this.isOnLink = e.path.filter((el) => el.tagName === "A" || el.tagName === "BUTTON").length > 0;
     });
 
     gsap.ticker.add(() => {
@@ -98,7 +97,13 @@ export default {
   z-index: 9999999;
 }
 
-.spinner-container {
+#spinner {
   transform: translateX(calc(-50% + 4.5vmin/2)) translateY(calc(-50% + 4.5vmin/2));
 }
+
+
+.visible{
+  opacity: 1
+}
+
 </style>

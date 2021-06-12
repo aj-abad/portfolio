@@ -13,6 +13,13 @@
   }
   
   @font-face {
+      font-family: 'ivy mode';
+      src: url('IvyMode-Italic.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+  }
+  
+  @font-face {
       font-family: 'roc grotesk';
       src: url('roc_grotesk_light.woff') format('woff');
       font-weight: lighter;
