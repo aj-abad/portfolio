@@ -7,7 +7,7 @@
   >
     <div
       class="position-absolute"
-      style="z-index: 10; width: 25vmin; height: 25vmin"
+      style="z-index: 10; width: 25vmin; height: 25vmin; opacity: 0"
       :style="slowFollowCursor"
     >
       <div class="h-100 w-100 spinner-container">

@@ -32,9 +32,10 @@ button:focus {
     outline: none;
 }
 
-::-webkit-scrollbar {
+
+/* ::-webkit-scrollbar {
     width: 0px;
-}
+} */
 
 .pointer-events-none {
     pointer-events: none !important;

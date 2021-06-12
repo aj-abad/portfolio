@@ -69,3 +69,11 @@
       z-index: -1;
       border: 2px solid black;
   }
+  
+  h1 {
+      font-size: calc(12rem/2);
+  }
+  
+  p {
+      font-size: calc(3rem/2)
+  }

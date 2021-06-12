@@ -1,10 +1,12 @@
 <template>
-  <header id="main-header" class="h-100vh w-100vw pa-16 d-flex align-center" data-scroll :data-scroll-speed="scrollSpeed">
+  <header
+    id="main-header"
+    class="h-100vh w-100vw pa-16 d-flex align-center"
+    data-scroll
+    :data-scroll-speed="scrollSpeed"
+  >
     <div>
-      <h1
-        class="display hero mb-8"
-        v-html="htmlText"
-      ></h1>
+      <h1 class="display hero mb-8" v-html="htmlText"></h1>
       <p class="lead" :style="leadTextStyle">
         Unique web solutions for&nbsp;
         <span
@@ -15,15 +17,11 @@
             'client-not-yet-active': clientIndex < i,
             'client-no-longer-active': clientIndex > i,
           }"
-          :aria-hidden="i !== clientIndex"
-          >
-          <span v-html="client"></span>
-          </span
         >
+          <span v-html="client"></span>
+        </span>
       </p>
-      <button class="display px-4 py-3">
-        Scroll for more ->
-      </button>
+      <button class="display px-4 py-3">Scroll for more -></button>
     </div>
   </header>
 </template>
@@ -69,9 +67,9 @@ export default {
     leadTextStyle() {
       return `opacity: ${this.leadText.opacity}; filter: blur(${this.leadText.blur}px); transform: translateY(${this.leadText.translate}px)`;
     },
-    scrollSpeed(){
-      return -window.innerWidth /500
-    }
+    scrollSpeed() {
+      return -window.innerWidth / 700;
+    },
   },
   mounted() {
     const deez = this;
@@ -162,12 +160,13 @@ export default {
 
 .client-not-yet-active {
   transform: translateY(20px);
-  opacity: 0;
-  filter: blur(5px);
 }
 
 .client-no-longer-active {
   transform: translateY(-20px);
+}
+
+.client-no-longer-active, .client-not-yet-active {
   opacity: 0;
   filter: blur(5px);
 }
@@ -176,8 +175,9 @@ export default {
   .hero {
     font-size: 8rem;
   }
-  .lead{
-    font-size: calc(3rem * 2/3)
+
+  .lead {
+    font-size: calc((3rem * 2 / 3));
   }
 }
 </style>
