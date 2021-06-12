@@ -21,7 +21,7 @@
           </span
         >
       </p>
-      <button class="display">
+      <button class="display px-4 py-3">
         Scroll for more ->
       </button>
     </div>
