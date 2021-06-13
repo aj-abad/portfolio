@@ -1,12 +1,18 @@
 <template>
-  <section class="position-relative" aria-hidden="true"></section>
+  <section class="position-relative d-flex align-center justify-center" aria-hidden="true">
+    <about-me-vector :progress="progress" style="width: 100%; margin: 6rem" />
+  </section>
 </template>
 
 <script>
+import AboutMeVector from "@/components/AboutMeVector";
 export default {
   name: "AboutMeIllustration",
   props: {
     progress: Number,
+  },
+  components: {
+    AboutMeVector,
   },
   computed: {
     offset() {

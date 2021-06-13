@@ -1,16 +1,18 @@
 <template>
   <section
-    class="h-100vh w-100vw d-flex align-center"
+    class="secondary h-100vh w-100vw d-flex align-center"
     data-scroll
     data-scroll-id="about"
     style="z-index: 2"
   >
     <AboutMeIllustration
+      data-scroll
+      data-scroll-speed="16"
       style="height: 100vh; min-width: 600px"
       :progress="aboutProgress"
     />
 
-    <div class="secondary about-content h-100 flex-grow-1 pl-16 py-16">
+    <div class="about-content h-100 flex-grow-1 pl-16 py-16">
       <h1 class="display mb-6">Who Am I?</h1>
       <p>
         I'm AJ, a full-stack web developer based in the Philippines. Yeah boi
@@ -33,6 +35,4 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-
-</style>
+<style lang="stylus" scoped></style>
