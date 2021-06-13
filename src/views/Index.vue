@@ -17,8 +17,7 @@
         <div class="h-100 flex-grow-1 pl-16 py-16">
           <h1 class="display mb-6">Who Am I?</h1>
           <p>
-            I'm AJ, a full-stack web developer based in the Philippines. I am an
-            Information Systems graduate of De La Salle-College of Saint Benilde.
+            I'm AJ, a full-stack web developer based in the Philippines. Yeah boi
           </p>
           <p>
             I 

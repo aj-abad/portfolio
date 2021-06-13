@@ -1,5 +1,5 @@
 *:not(input, textarea) {
-    user-select: none;
+    /* user-select: none; */
     overscroll-behavior: none;
 }
 
