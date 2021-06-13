@@ -68,7 +68,7 @@ export default {
       return `opacity: ${this.leadText.opacity}; filter: blur(${this.leadText.blur}px); transform: translateY(${this.leadText.translate}px)`;
     },
     scrollSpeed() {
-      return -window.innerWidth / 700;
+      return -window.innerWidth / 300;
     },
   },
   mounted() {

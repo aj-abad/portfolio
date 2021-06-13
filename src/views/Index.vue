@@ -1,31 +1,11 @@
 <template>
   <main>
     <div id="scroll-container" style="width: 10000vw">
-      <welcome-header v-if="!introAnimationDone" @animationdone="introAnimationDoneHandler()" />
-      <section
-        class="pa-16 h-100vh w-100vw d-flex align-center"
-        data-scroll
-        data-scroll-id="about"
-      >
-        <div class="h-100 d-flex align-center mr-16" style="min-width: 50vmin">
-          <AboutMeIllustration
-            style="width: 100%; height: auto"
-            :progress="aboutProgress"
-          />
-        </div>
-        <div class="h-100 flex-grow-1 pl-16 py-16">
-          <h1 class="display mb-6">Who Am I?</h1>
-          <p>
-            I'm AJ, a full-stack web developer based in the Philippines. Yeah boi
-          </p>
-          <p>
-            I 
-          </p>
-        </div>
-      </section>
-      <section class="h-100vh w-100vw">
-        <h1>test</h1>
-      </section>
+      <welcome-header
+        v-if="!introAnimationDone"
+        @animationdone="introAnimationDoneHandler()"
+      />
+      <AboutMe :aboutProgress="aboutProgress"/>
     </div>
   </main>
 </template>
@@ -33,7 +13,7 @@
 <script>
 import LocomotiveScroll from "locomotive-scroll";
 import WelcomeHeader from "@/views/WelcomeHeader";
-import AboutMeIllustration from "@/components/AboutMeIllustration";
+import AboutMe from './AboutMe.vue';
 export default {
   name: "Home",
   data() {
@@ -45,7 +25,7 @@ export default {
   },
   components: {
     WelcomeHeader,
-    AboutMeIllustration,
+    AboutMe,
   },
   mounted() {
     setTimeout(() => {
@@ -70,9 +50,9 @@ export default {
     scrollHandler(e) {
       this.aboutProgress = e.currentElements.about?.progress;
     },
-    introAnimationDoneHandler(){
-      this.scroll.scrollTo(window.innerWidth)
-    }
+    introAnimationDoneHandler() {
+      this.scroll.scrollTo(window.innerWidth);
+    },
   },
 };
 </script>
