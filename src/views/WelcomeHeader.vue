@@ -17,11 +17,11 @@
             'client-not-yet-active': clientIndex < i,
             'client-no-longer-active': clientIndex > i,
           }"
+          @transitionend="transitionEndHandler(i)"
         >
           <span v-html="client"></span>
         </span>
       </p>
-      <button class="display px-4 py-3">Scroll for more -></button>
     </div>
   </header>
 </template>
@@ -116,14 +116,20 @@ export default {
     },
     animateClient() {
       if (this.clientIndex === 4) return false;
+
       if (this.frameCounter < this.frameInterval) {
         this.frameCounter++;
         return window.requestAnimationFrame(() => this.animateClient());
       }
       this.frameCounter = 0;
       this.clientIndex++;
-
       return window.requestAnimationFrame(() => this.animateClient());
+    },
+    transitionEndHandler(i) {
+      if (i !== 4) return false;
+      return setTimeout(() => {
+        this.$emit("animationdone");
+      }, 400);
     },
   },
 };

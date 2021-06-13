@@ -1,8 +1,7 @@
 <template>
   <main>
     <div id="scroll-container" style="width: 10000vw">
-      <welcome-header />
-
+      <welcome-header v-if="!introAnimationDone" @animationdone="introAnimationDoneHandler()" />
       <section
         class="pa-16 h-100vh w-100vw d-flex align-center"
         data-scroll
@@ -40,6 +39,7 @@ export default {
   data() {
     return {
       scroll: null,
+      introAnimationDone: false,
       aboutProgress: 0,
     };
   },
@@ -70,6 +70,9 @@ export default {
     scrollHandler(e) {
       this.aboutProgress = e.currentElements.about?.progress;
     },
+    introAnimationDoneHandler(){
+      this.scroll.scrollTo(window.innerWidth)
+    }
   },
 };
 </script>
