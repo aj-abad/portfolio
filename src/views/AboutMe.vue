@@ -6,11 +6,11 @@
     style="z-index: 2"
   >
     <AboutMeIllustration
-      style="height: 100vh; width: calc(100vh * 2 / 3)"
+      style="height: 100vh; min-width: 600px"
       :progress="aboutProgress"
     />
 
-    <div class="about-content h-100 flex-grow-1 pl-16 py-16">
+    <div class="secondary about-content h-100 flex-grow-1 pl-16 py-16">
       <h1 class="display mb-6">Who Am I?</h1>
       <p>
         I'm AJ, a full-stack web developer based in the Philippines. Yeah boi
@@ -34,7 +34,5 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.about-content {
-  background: #161616;
-}
+
 </style>
