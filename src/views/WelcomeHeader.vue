@@ -3,7 +3,7 @@
     id="main-header"
     class="h-100vh w-100vw pa-16 d-flex align-center"
     data-scroll
-    :data-scroll-speed="scrollSpeed"
+    data-scroll-speed="-10"
   >
     <div>
       <h1 class="display hero mb-8" v-html="htmlText"></h1>
@@ -66,9 +66,6 @@ export default {
     },
     leadTextStyle() {
       return `opacity: ${this.leadText.opacity}; filter: blur(${this.leadText.blur}px); transform: translateY(${this.leadText.translate}px)`;
-    },
-    scrollSpeed() {
-      return -window.innerWidth / 300;
     },
   },
   mounted() {
@@ -175,6 +172,8 @@ export default {
 .client-no-longer-active, .client-not-yet-active {
   opacity: 0;
   filter: blur(5px);
+  user-select none
+  pointer-events none
 }
 
 @media (max-width: 1366px) {

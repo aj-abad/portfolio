@@ -5,7 +5,9 @@
         v-if="!introAnimationDone"
         @animationdone="introAnimationDoneHandler()"
       />
-      <AboutMe :aboutProgress="aboutProgress"/>
+      <AboutMe :aboutProgress="aboutProgress" />
+      <my-approach />
+      <my-work />
     </div>
   </main>
 </template>
@@ -13,7 +15,9 @@
 <script>
 import LocomotiveScroll from "locomotive-scroll";
 import WelcomeHeader from "@/views/WelcomeHeader";
-import AboutMe from './AboutMe.vue';
+import AboutMe from "@/views/About/AboutMe";
+import MyApproach from "@/views/About/MyApproach";
+import MyWork from "./MyWork/MyWork.vue";
 export default {
   name: "Home",
   data() {
@@ -26,6 +30,8 @@ export default {
   components: {
     WelcomeHeader,
     AboutMe,
+    MyApproach,
+    MyWork,
   },
   mounted() {
     setTimeout(() => {
@@ -33,14 +39,9 @@ export default {
         el: document.querySelector("#scroll-container"),
         getSpeed: true,
         multiplier: 1,
+        lerp: 0.08,
         direction: "horizontal",
         smooth: true,
-        smartphone: {
-          smooth: true,
-        },
-        tablet: {
-          smooth: true,
-        },
       });
 
       this.scroll.on("scroll", this.scrollHandler);
@@ -51,7 +52,7 @@ export default {
       this.aboutProgress = e.currentElements.about?.progress;
     },
     introAnimationDoneHandler() {
-      this.scroll.scrollTo(window.innerWidth);
+      // this.scroll.scrollTo(window.innerWidth);
     },
   },
 };
