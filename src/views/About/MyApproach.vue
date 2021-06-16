@@ -8,12 +8,24 @@
     <v-row>
       <v-col class="py-8 px-8">
         <h1 data-content="01">Design</h1>
+        <div class="spacer"></div>
+        <p>
+          Let's come up with something.
+        </p>
       </v-col>
       <v-col class="py-8 px-8">
         <h1 data-content="02">Develop</h1>
+        <div class="spacer"></div>
+        <p>
+          Let's bring your idea to life.
+        </p>
       </v-col>
       <v-col class="py-8 px-8">
         <h1 data-content="03">Deploy</h1>
+        <div class="spacer"></div>
+        <p>
+          Let's 
+        </p>
       </v-col>
     </v-row>
   </section>
@@ -21,13 +33,7 @@
 
 <script>
 export default {
-  name: "AboutMe",
-  computed: {
-    experience() {
-      const date = new Date();
-      return date.getFullYear() - 2016;
-    },
-  },
+  name: "MyApproach"
 };
 </script>
 
@@ -52,5 +58,9 @@ h1::before{
   transform translateX(-25%)
   z-index -1
   opacity 0.5
+}
+
+.spacer{
+  height 37.5vh
 }
 </style>

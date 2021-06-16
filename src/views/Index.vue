@@ -5,7 +5,13 @@
         v-if="!introAnimationDone"
         @animationdone="introAnimationDoneHandler()"
       />
-      <AboutMe :aboutProgress="aboutProgress" />
+      <about-me :aboutProgress="aboutProgress" />
+      <my-approach-illustration
+        style="height: 200vh; width: auto; border-left: 1px solid black"
+        class="px-6 pr-10"
+        data-scroll
+        data-scroll-id="myApproachIllustration"
+      />
       <my-approach />
       <my-work />
     </div>
@@ -18,6 +24,7 @@ import WelcomeHeader from "@/views/WelcomeHeader";
 import AboutMe from "@/views/About/AboutMe";
 import MyApproach from "@/views/About/MyApproach";
 import MyWork from "./MyWork/MyWork.vue";
+import MyApproachIllustration from "../components/MyApproachIllustration.vue";
 export default {
   name: "Home",
   data() {
@@ -25,6 +32,7 @@ export default {
       scroll: null,
       introAnimationDone: false,
       aboutProgress: 0,
+      myApproachProgress: 0
     };
   },
   components: {
@@ -32,12 +40,14 @@ export default {
     AboutMe,
     MyApproach,
     MyWork,
+    MyApproachIllustration,
   },
   mounted() {
     setTimeout(() => {
       this.scroll = new LocomotiveScroll({
         el: document.querySelector("#scroll-container"),
         getSpeed: true,
+        getDirection: true,
         multiplier: 1,
         lerp: 0.08,
         direction: "horizontal",
