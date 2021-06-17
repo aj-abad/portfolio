@@ -16,9 +16,9 @@
           pt-12
           pb-16
         "
-        style="width: calc(100% / 3); left: calc(100% / 3 - 33.33)"
+        style="width: calc(100% / 3); transition: left 0.4s"
       >
-        <my-approach-icon class="h-100" />
+        <my-approach-icon :activeColumn="activeColumn" class="h-100" />
       </div>
     </div>
     <v-row>
@@ -39,10 +39,10 @@
           Design
         </h1>
         <div class="spacer"></div>
-        <p>
+        <p class="mt-6">
           <strong>Let's come up with something.</strong>
-          Whether you want your PSD mockup turned into a real thing or
-          you want to create everything from scratch, I got you covered.
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text.
         </p>
       </v-col>
       <v-col class="col-4 py-8 px-8" data-scroll data-scroll-id="developColumn">
@@ -57,10 +57,10 @@
           Develop
         </h1>
         <div class="spacer"></div>
-        <p>
-          <strong>Let's bring your idea to life.</strong> Be it a single-page
-          static app or a full-blown SaaS, I'll handle your project's entire
-          stack, from the front-end framework right down to the databse.
+        <p class="mt-6">
+          <strong>Let's bring your idea to life.</strong> Lorem Ipsum is simply
+          dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text.
         </p>
       </v-col>
       <v-col class="col-4 py-8 px-8" data-scroll data-scroll-id="deployColumn">
@@ -75,16 +75,24 @@
           Deploy
         </h1>
         <div class="spacer"></div>
-        <p>Let's put your thing online.</p>
+        <p class="mt-6">
+          <strong>Let's put your thing online.</strong>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text.
+        </p>
       </v-col>
     </v-row>
   </section>
 </template>
 
 <script>
+import anime from "animejs/lib/anime.es";
 import MyApproachIcon from "@/components/MyApproachIcon";
 export default {
   name: "MyApproach",
+  props: {
+    activeColumn: Number,
+  },
   components: { MyApproachIcon },
   mounted() {
     let padding = window
@@ -93,6 +101,18 @@ export default {
     padding = parseInt(padding.substring(0, padding.length - 1));
     const headerHeight = this.$refs.heading.clientHeight;
     this.$refs.iconContainer.style.marginTop = `${headerHeight + padding}px`;
+  },
+  watch: {
+    activeColumn() {
+      if (this.activeColumn > 1) {
+        anime({
+          targets: this.$refs.iconContainer,
+          left: `${(100 / 3) * (this.activeColumn - 1)}%`,
+          duration: 1600,
+          easing: "easeInOutElastic(1, .6)",
+        });
+      }
+    },
   },
 };
 </script>

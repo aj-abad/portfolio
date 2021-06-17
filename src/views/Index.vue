@@ -11,7 +11,7 @@
         class="px-6 pr-10"
         :scrollSpeed="scrollSpeed"
       />
-      <my-approach />
+      <my-approach :activeColumn="myApproach" />
       <theres-more-illustration />
       <my-work />
     </div>
@@ -32,8 +32,9 @@ export default {
     return {
       scroll: null,
       introAnimationDone: false,
+      scrollSpeed: 0,
       aboutProgress: 0,
-      scrollSpeed: 0
+      myApproach: 0,
     };
   },
   components: {
@@ -61,8 +62,24 @@ export default {
   },
   methods: {
     scrollHandler(e) {
-      this.aboutProgress =  e.currentElements.about?.progress ?? 0;
-      this.scrollSpeed = e.speed
+      this.aboutProgress = e.currentElements.about?.progress ?? 0;
+      this.scrollSpeed = e.speed;
+      if (
+        e.currentElements.deployColumn?.progress > 0.45 &&
+        this.myApproach < 3
+      ) {
+        this.myApproach = 3;
+      } else if (
+        e.currentElements.developColumn?.progress > 0.45 &&
+        this.myApproach < 2
+      ) {
+        this.myApproach = 2;
+      } else if (
+        e.currentElements.designColumn?.progress > 0.45 &&
+        this.myApproach < 1
+      ) {
+        this.myApproach = 1;
+      }
     },
     introAnimationDoneHandler() {
       // this.scroll.scrollTo(window.innerWidth);
