@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-scroll data-scroll-id="myApproachIllustration">
     <MyApproachVector
       :translate="translate1"
       id="my-approach-1"
@@ -13,6 +13,9 @@
 import MyApproachVector from "@/components/MyApproachVector";
 export default {
   name: "MyApproachIllustration",
+  props: {
+    scrollSpeed: Number,
+  },
   data() {
     return {
       translate1: 0,
@@ -28,8 +31,14 @@ export default {
   },
   methods: {
     animateMarquee() {
-      this.translate1 += 0.5;
-      this.translate2 -= 0.5;
+      if (!this.isReverse) {
+        this.translate1 += 0.5;
+        this.translate2 -= 0.5;
+      } else {
+        this.translate1 -= 0.5;
+        this.translate2 += 0.5;
+      }
+
       if (
         this.translate1 > 750.97 ||
         (this.translate1 < 0 && this.translate1 < -750.97)
@@ -43,6 +52,13 @@ export default {
         this.translate2 = 0;
       }
       window.requestAnimationFrame(() => this.animateMarquee());
+    },
+  },
+  watch: {
+    scrollSpeed() {
+      this.isReverse = this.scrollSpeed < 0;
+      this.translate1 += this.scrollSpeed * 0.5;
+      this.translate2 -= this.scrollSpeed * 0.5;
     },
   },
 };

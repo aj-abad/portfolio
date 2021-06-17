@@ -9,10 +9,10 @@
       <my-approach-illustration
         style="height: 200vh; width: auto; border-left: 1px solid black"
         class="px-6 pr-10"
-        data-scroll
-        data-scroll-id="myApproachIllustration"
+        :scrollSpeed="scrollSpeed"
       />
       <my-approach />
+      <theres-more-illustration />
       <my-work />
     </div>
   </main>
@@ -25,6 +25,7 @@ import AboutMe from "@/views/About/AboutMe";
 import MyApproach from "@/views/About/MyApproach";
 import MyWork from "./MyWork/MyWork.vue";
 import MyApproachIllustration from "../components/MyApproachIllustration.vue";
+import TheresMoreIllustration from "@/components/TheresMoreIllustration";
 export default {
   name: "Home",
   data() {
@@ -32,7 +33,7 @@ export default {
       scroll: null,
       introAnimationDone: false,
       aboutProgress: 0,
-      myApproachProgress: 0
+      scrollSpeed: 0
     };
   },
   components: {
@@ -41,6 +42,7 @@ export default {
     MyApproach,
     MyWork,
     MyApproachIllustration,
+    TheresMoreIllustration,
   },
   mounted() {
     setTimeout(() => {
@@ -59,7 +61,8 @@ export default {
   },
   methods: {
     scrollHandler(e) {
-      this.aboutProgress = e.currentElements.about?.progress;
+      this.aboutProgress =  e.currentElements.about?.progress ?? 0;
+      this.scrollSpeed = e.speed
     },
     introAnimationDoneHandler() {
       // this.scroll.scrollTo(window.innerWidth);

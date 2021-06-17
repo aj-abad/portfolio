@@ -1,66 +1,135 @@
 <template>
   <section
-    class="secondary h-100vh w-100vw d-flex align-center"
+    class="secondary h-100vh d-flex align-center position-relative"
     data-scroll
     data-scroll-id="myApproach"
-    style="z-index: 2"
+    style="z-index: 2; min-width: 100vw; max-width: 100vw"
   >
+    <div ref="iconContainer" class="icon-container position-absolute">
+      <div
+        class="
+          icon-placer
+          position-relative
+          h-100
+          d-flex
+          justify-center
+          pt-12
+          pb-16
+        "
+        style="width: calc(100% / 3); left: calc(100% / 3 - 33.33)"
+      >
+        <my-approach-icon class="h-100" />
+      </div>
+    </div>
     <v-row>
-      <v-col class="py-8 px-8">
-        <h1 data-content="01">Design</h1>
+      <v-col
+        ref="col"
+        class="col-4 py-8 px-8"
+        data-scroll
+        data-scroll-id="designColumn"
+      >
+        <h1 ref="heading">
+          <span
+            class="watermark"
+            aria-hidden="true"
+            data-scroll
+            data-scroll-speed="0.1"
+            >01</span
+          >
+          Design
+        </h1>
         <div class="spacer"></div>
         <p>
-          Let's come up with something.
+          <strong>Let's come up with something.</strong>
+          Whether you want your PSD mockup turned into a real thing or
+          you want to create everything from scratch, I got you covered.
         </p>
       </v-col>
-      <v-col class="py-8 px-8">
-        <h1 data-content="02">Develop</h1>
+      <v-col class="col-4 py-8 px-8" data-scroll data-scroll-id="developColumn">
+        <h1>
+          <span
+            class="watermark"
+            aria-hidden="true"
+            data-scroll
+            data-scroll-speed="0.1"
+            >02</span
+          >
+          Develop
+        </h1>
         <div class="spacer"></div>
         <p>
-          Let's bring your idea to life.
+          <strong>Let's bring your idea to life.</strong> Be it a single-page
+          static app or a full-blown SaaS, I'll handle your project's entire
+          stack, from the front-end framework right down to the databse.
         </p>
       </v-col>
-      <v-col class="py-8 px-8">
-        <h1 data-content="03">Deploy</h1>
+      <v-col class="col-4 py-8 px-8" data-scroll data-scroll-id="deployColumn">
+        <h1>
+          <span
+            class="watermark"
+            aria-hidden="true"
+            data-scroll
+            data-scroll-speed="0.1"
+            >03</span
+          >
+          Deploy
+        </h1>
         <div class="spacer"></div>
-        <p>
-          Let's 
-        </p>
+        <p>Let's put your thing online.</p>
       </v-col>
     </v-row>
   </section>
 </template>
 
 <script>
+import MyApproachIcon from "@/components/MyApproachIcon";
 export default {
-  name: "MyApproach"
+  name: "MyApproach",
+  components: { MyApproachIcon },
+  mounted() {
+    let padding = window
+      .getComputedStyle(this.$refs.col, null)
+      .getPropertyValue("padding-left");
+    padding = parseInt(padding.substring(0, padding.length - 1));
+    const headerHeight = this.$refs.heading.clientHeight;
+    this.$refs.iconContainer.style.marginTop = `${headerHeight + padding}px`;
+  },
 };
 </script>
 
 <style lang="stylus" scoped>
-.row{
-  height 100%
+.row {
+  margin: 0;
+  height: 100%;
 }
+
 .col {
   height: 100%;
   border-left: 1px solid black;
 }
 
-.col:last-of-type{
-  border-right: 1px solid black
+.col:last-of-type {
+  border-right: 1px solid black;
 }
 
-
-h1::before{
-  content: attr(data-content)
-  position absolute
-  font-size 0.5em
-  transform translateX(-25%)
-  z-index -1
-  opacity 0.5
+h1 .watermark {
+  display: inline-block;
+  position: absolute;
+  font-size: 0.5em;
+  transform: translateX(-25%);
+  z-index: -1;
+  opacity: 0.5;
+  user-select: none;
 }
 
-.spacer{
-  height 37.5vh
+.spacer {
+  height: 37.5vh;
+}
+
+.icon-container {
+  height: 37.5vh;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 </style>
