@@ -221,24 +221,22 @@ export default {
       });
     },
     animatePhase3() {
-      const deez = this;
+      const deez= this
+      anime({
+        targets: ".orbit",
+        strokeDashoffset: [anime.setDashoffset, 0],
+        delay: anime.stagger(400, {start: 800}),
+        begin(){
+          deez.phase3.strokeAnimStarted = true
+        },
+        easing: "easeOutQuad",
+        duration: 800,
+      });
       anime({
         targets: this.phase2,
         rotate: 360,
         duration: 1600,
         easing: "easeInOutElastic(1, .6)",
-        update(anim) {
-          if (anim.progress >= 60 && !deez.phase3.strokeAnimStarted) {
-            deez.phase3.strokeAnimStarted = true;
-            anime({
-              targets: ".orbit",
-              strokeDashoffset: [anime.setDashoffset, 0],
-              delay: anime.stagger(400),
-              easing: "easeOutQuad",
-              duration: 800,
-            });
-          }
-        },
       });
       anime({
         targets: this.phase3,
@@ -312,8 +310,8 @@ export default {
   animation: rotate 32s linear infinite;
 }
 
-.orbit:last-of-type{
-  animation-duration: 16s
+.orbit:last-of-type {
+  animation-duration: 16s;
 }
 
 @keyframes rotate {
