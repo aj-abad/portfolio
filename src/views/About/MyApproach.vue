@@ -76,7 +76,7 @@
         </h1>
         <div class="spacer"></div>
         <p class="mt-6">
-          <strong>Let's put your thing online.</strong>
+          <strong>Let's get your thing online.</strong>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text.
         </p>

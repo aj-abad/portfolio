@@ -233,6 +233,7 @@ export default {
             anime({
               targets: ".orbit",
               strokeDashoffset: [anime.setDashoffset, 0],
+              delay: anime.stagger(400),
               easing: "easeOutQuad",
               duration: 800,
             });
