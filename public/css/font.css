@@ -50,7 +50,7 @@
  button.display {
      font-size: 1.5rem;
      background: var(--bg);
-     border: 2px solid black;
+     border: 1px solid black;
      position: relative;
      z-index: 10;
      font-weight: bold;
@@ -65,9 +65,8 @@
      left: 0;
      position: absolute;
      transform: translateX(-10px) translateY(10px);
-     clip-path: polygon(0% 0%, 0% 100%, 5% 100%, 5% 0, 100% 0, 100% calc(100% - 9px), 0 95%, 0 100%, 100% 100%, 100% 0);
      z-index: -1;
-     border: 2px solid black;
+     border: 1px solid black;
  }
  
  h1 {
