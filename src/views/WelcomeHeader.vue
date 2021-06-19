@@ -3,7 +3,7 @@
     id="main-header"
     class="h-100vh w-100vw pa-16 d-flex align-center"
     data-scroll
-    data-scroll-speed="-10"
+    data-scroll-speed="-9.5"
   >
     <div>
       <h1 class="display hero mb-8" v-html="htmlText"></h1>

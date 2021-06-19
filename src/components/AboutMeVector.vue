@@ -1,86 +1,187 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 331 561"
-    style="overflow: visible"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 667.15 494.91"
   >
-    <rect
-      x="24.74"
-      y="68.64"
-      width="282.52"
-      height="423.78"
-      rx="141.26"
-      class="rect"
-    />
-    <path
-      d="M166,280.53h0l-1.83-86.27h3.66Zm-31.32-80.41-3.39,1.4,34.71,79h0Zm-28.4,18.1-2.59,2.59L166,280.53h0ZM87,245.81l-1.41,3.39L166,280.53h0ZM79.7,278.69v3.67l86.3-1.83h0Zm5.86,33.17,1.4,3.39,79-34.72h0Zm18.11,28.41,2.59,2.59L166,280.53h0Zm27.6,19.31,3.39,1.41L166,280.53h0Zm32.9,7.22h3.66L166,280.53h0Zm33.15-5.86,3.39-1.4-34.71-79h0Zm28.4-18.1,2.59-2.6L166,280.53h0ZM245,315.25l1.41-3.39L166,280.53h0Zm7.28-32.89v-3.67L166,280.53h0Zm-5.86-33.17L245,245.8l-79,34.73h0Zm-18.11-28.4-2.59-2.59L166,280.53h0Zm-27.6-19.32-3.39-1.4L166,280.53h0Z"
-    />
-    <path
-      id="about-me-text-path-1"
-      d="M166,512.42c-88.92,0-161.26-72.34-161.26-161.26V209.9C4.74,121,77.08,48.64,166,48.64S327.26,121,327.26,209.9V351.16C327.26,440.08,254.92,512.42,166,512.42Z"
-      class="text-path"
-    />
-    <path
-      id="about-me-text-path-2"
-      d="M166,512.42c-88.92,0-161.26-72.34-161.26-161.26V209.9C4.74,121,77.08,48.64,166,48.64S327.26,121,327.26,209.9V351.16C327.26,440.08,254.92,512.42,166,512.42Z"
-      class="text-path"
-      style="transform-origin: 50% 50%; transform: rotate(180deg)"
-    />
-    <text width="100%">
-      <textPath
-        alignment-baseline="top"
-        xlink:href="#about-me-text-path-1"
-        :startOffset="offset"
-        id="text"
-        class="text"
+    <defs>
+      <clipPath id="aboutme-a">
+        <rect y="466.43" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-b">
+        <rect y="437.95" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-c">
+        <rect y="409.48" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-d">
+        <rect y="381" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-e">
+        <rect y="339.43" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-f">
+        <rect y="310.95" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-g">
+        <rect y="282.48" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-h">
+        <rect y="254" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-i">
+        <rect y="212.43" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-j">
+        <rect y="183.95" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-k">
+        <rect y="155.48" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-l">
+        <rect y="127" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-m">
+        <rect y="85.43" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-n">
+        <rect y="56.95" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-o">
+        <rect y="28.48" width="667.15" height="29" style="fill: none" />
+      </clipPath>
+      <clipPath id="aboutme-p">
+        <rect width="667.15" height="29" style="fill: none" />
+      </clipPath>
+    </defs>
+
+    <g>
+      <g style="clip-path: url(#aboutme-p)">
+        <text x="54.75" y="109.97" :style="computeStyle(0)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-o)">
+        <text x="54.75" y="109.97" :style="computeStyle(1)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-n)">
+        <text x="54.75" y="109.97" :style="computeStyle(2)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-m)">
+        <text x="54.75" y="109.97" :style="computeStyle(3)">About Me</text>
+      </g>
+    </g>
+    <g>
+      <g style="clip-path: url(#aboutme-l)">
+        <text x="54.75" y="236.97" :style="computeStyle(4)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-k)">
+        <text x="54.75" y="236.97" :style="computeStyle(5)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-j)">
+        <text x="54.75" y="236.97" :style="computeStyle(6)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-i)">
+        <text x="54.75" y="236.97" :style="computeStyle(7)">About Me</text>
+      </g>
+    </g>
+    <g>
       >
-        About Me
-      </textPath>
-    </text>
-    <text letter-spacing="-1" width="100%">
-      <textPath
-        alignment-baseline="top"
-        xlink:href="#about-me-text-path-2"
-        :startOffset="offset"
-        id="text"
-        class="text"
-      >
-        About Me
-      </textPath>
-    </text>
+      <g style="clip-path: url(#aboutme-h)">
+        <text x="54.75" y="363.97" :style="computeStyle(8)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-g)">
+        <text x="54.75" y="363.97" :style="computeStyle(9)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-f)">
+        <text x="54.75" y="363.97" :style="computeStyle(10)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-e)">
+        <text x="54.75" y="363.97" :style="computeStyle(11)">About Me</text>
+      </g>
+    </g>
+    <g>
+      <g style="clip-path: url(#aboutme-d)">
+        <text x="54.75" y="490.97" :style="computeStyle(12)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-c)">
+        <text x="54.75" y="490.97" :style="computeStyle(13)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-b)">
+        <text x="54.75" y="490.97" :style="computeStyle(14)">About Me</text>
+      </g>
+      <g style="clip-path: url(#aboutme-a)">
+        <text x="54.75" y="490.97" :style="computeStyle(15)">About Me</text>
+      </g>
+    </g>
+    <g>
+      <text x="54.75" y="282.48" style="fill: red">About Me</text>
+    </g>
   </svg>
 </template>
 <script>
+import anime from "animejs/lib/anime.es";
 export default {
   name: "AboutMeVector",
   props: {
     progress: Number,
   },
+  data() {
+    return {
+      timeline: null,
+      sineMultiplier: 1000,
+      opacity: 1,
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.timeline = anime.timeline({
+        autoplay: true,
+        duration: 1000,
+      });
+      this.timeline.add({
+        targets: this,
+        sineMultiplier: 0,
+        duration: 400,
+        easing: "easeInOutElastic(1,1)",
+      });
+      this.timeline.add(
+        {
+          targets: this,
+          opacity: 0,
+          duration: 400,
+          easing: "easeInSine",
+        },
+        "+=400"
+      );
+    }, 1000);
+  },
+  methods: {
+    computeStyle(i) {
+      const translate = (this.sineMultiplier * Math.sin(i - 8) * Math.PI) / 32;
+      const transform = `transform: translateX(${translate}px)`;
+      return transform;
+    },
+  },
   computed: {
-    offset() {
-      const offset = 310 + 100 * this.progress * 4;
-      return offset;
+    phase2Opacity() {
+      const THRESHOLD_START = 0.25;
+      const THRESHOLD_END = 0.5;
+      if (this.progress < THRESHOLD_START) return `opacity: 1`;
+      if (this.progress > THRESHOLD_END) return `opacity: 0`;
+      const timeline = THRESHOLD_END - THRESHOLD_START;
+      const progress = (this.progress / timeline) * 100 - 100;
+      return `opacity: ${Math.abs(1 - progress / 100)}`;
     },
   },
 };
 </script>
 
 <style lang="stylus" scoped>
-.rect {
-  fill: none;
-  stroke: black;
-  stroke-width: 1.5;
-  stroke-miterlimit: 10;
-}
-
-.text {
-  font-size: 56.93px;
+text {
+  font-size: 132px;
   font-family: 'ivy mode';
-  font-weight: bold;
-}
-
-.text-path {
-  fill: none;
-  stroke: none;
+  font-weight: normal;
+  fill: hsl(40deg, 4, 214);
+  user-select: none;
+  transform-origin: 50% 50%;
 }
 </style>
