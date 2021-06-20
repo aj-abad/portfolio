@@ -173,7 +173,7 @@ export default {
   data() {
     return {
       timeline: null,
-      sineMultiplier: 1000,
+      sineMultiplier: 1,
       opacity: 1,
     };
   },
@@ -253,7 +253,7 @@ export default {
   },
   methods: {
     computeStyle(i) {
-      const translate = (this.sineMultiplier * Math.sin(i - 8) * Math.PI) / 64;
+      const translate = this.sineMultiplier * Math.sin(Math.PI * i / 8) * 60
       return `transform: translateX(${translate}px)`;
     },
   },

@@ -4,14 +4,14 @@
     aria-label="About Me"
   >
     <div class="w-100 position-absolute" style="top: 0; left: 0">
-      <span class="display secondary--text">01</span>
+      <span class="display">01</span>
     </div>
 
     <about-me-vector id="about-me-vector" :progress="progress" />
-    <div class="w-100 position-absolute text-right" style="bottom: 0; left: 0;">
-      <span class="display secondary--text">01</span>
+    <div class="w-100 position-absolute text-right" style="bottom: 0; left: 0">
+      <span class="display">01</span>
     </div>
-
+    <div class="line" ref="line" :style="`transform: rotate(${angle}deg)`"></div>
   </section>
 </template>
 
@@ -24,6 +24,17 @@ export default {
   },
   components: {
     AboutMeVector,
+  },
+  data(){
+    return{
+      angle:0
+    }
+  },
+  mounted() {
+      const w = document.querySelector("#about-me-illustration").clientWidth;
+      const h = document.querySelector("#about-me-illustration").clientHeight;
+      const angle = Math.atan(h / w) * 180/Math.PI;
+      this.angle = angle
   },
 };
 </script>
@@ -39,6 +50,17 @@ section {
 .position-absolute {
   font-size: 1.5rem;
   padding: 1rem 2rem;
+  color #e3e3e3
+  user-select none
+}
+
+.line {
+  position: absolute;
+  width: 120%;
+  height: 1.5px;
+  background: #e3e3e3;
+  z-index: 10;
+  opacity: 0.5;
 }
 
 #about-me-vector {
