@@ -55,65 +55,111 @@
       </clipPath>
     </defs>
 
-    <g style="transform: translateY(172.51px)">
+    <g class="group-1">
       <g style="clip-path: url(#aboutme-p)">
-        <text x="54.75" y="109.97" :style="computeStyle(0)">About Me</text>
+        <text x="54.75" y="109.97" :style="computeStyle(0)">
+          About
+          <tspan class="to-fade">Me</tspan>
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-o)">
-        <text x="54.75" y="109.97" :style="computeStyle(1)">About Me</text>
+        <text x="54.75" y="109.97" :style="computeStyle(1)">
+          About
+          <tspan class="to-fade">Me</tspan>
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-n)">
-        <text x="54.75" y="109.97" :style="computeStyle(2)">About Me</text>
+        <text x="54.75" y="109.97" :style="computeStyle(2)">
+          About
+          <tspan class="to-fade">Me</tspan>
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-m)">
-        <text x="54.75" y="109.97" :style="computeStyle(3)">About Me</text>
+        <text x="54.75" y="109.97" :style="computeStyle(3)">
+          About
+          <tspan class="to-fade">Me</tspan>
+        </text>
       </g>
     </g>
-    <g>
+    <g class="group-2">
       <g style="clip-path: url(#aboutme-l)">
-        <text x="54.75" y="236.97" :style="computeStyle(4)">About Me</text>
+        <text class="to-fade" x="54.75" y="236.97" :style="computeStyle(4)">
+          About Me
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-k)">
-        <text x="54.75" y="236.97" :style="computeStyle(5)">About Me</text>
+        <text class="to-fade" x="54.75" y="236.97" :style="computeStyle(5)">
+          About Me
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-j)">
-        <text x="54.75" y="236.97" :style="computeStyle(6)">About Me</text>
+        <text class="to-fade" x="54.75" y="236.97" :style="computeStyle(6)">
+          About Me
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-i)">
-        <text x="54.75" y="236.97" :style="computeStyle(7)">About Me</text>
+        <text class="to-fade" x="54.75" y="236.97" :style="computeStyle(7)">
+          About Me
+        </text>
       </g>
     </g>
-    <g>
-      >
+    <g class="group-3">
       <g style="clip-path: url(#aboutme-h)">
-        <text x="54.75" y="363.97" :style="computeStyle(8)">About Me</text>
+        <text class="to-fade" x="54.75" y="363.97" :style="computeStyle(8)">
+          About Me
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-g)">
-        <text x="54.75" y="363.97" :style="computeStyle(9)">About Me</text>
+        <text class="to-fade" x="54.75" y="363.97" :style="computeStyle(9)">
+          About Me
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-f)">
-        <text x="54.75" y="363.97" :style="computeStyle(10)">About Me</text>
+        <text class="to-fade" x="54.75" y="363.97" :style="computeStyle(10)">
+          About Me
+        </text>
       </g>
       <g style="clip-path: url(#aboutme-e)">
-        <text x="54.75" y="363.97" :style="computeStyle(11)">About Me</text>
+        <text class="to-fade" x="54.75" y="363.97" :style="computeStyle(11)">
+          About Me
+        </text>
+      </g>
+    </g>
+    <g class="group-4">
+      <g style="clip-path: url(#aboutme-d)">
+        <text x="54.75" y="490.97" :style="computeStyle(12)">
+          <tspan class="to-fade">About</tspan>
+          Me
+        </text>
+      </g>
+      <g style="clip-path: url(#aboutme-c)">
+        <text x="54.75" y="490.97" :style="computeStyle(13)">
+          <tspan class="to-fade">About</tspan>
+          Me
+        </text>
+      </g>
+      <g style="clip-path: url(#aboutme-b)">
+        <text x="54.75" y="490.97" :style="computeStyle(14)">
+          <tspan class="to-fade">About</tspan>
+          Me
+        </text>
+      </g>
+      <g style="clip-path: url(#aboutme-a)">
+        <text x="54.75" y="490.97" :style="computeStyle(15)">
+          <tspan class="to-fade">About</tspan>
+          Me
+        </text>
       </g>
     </g>
     <g>
-      <g style="clip-path: url(#aboutme-d)">
-        <text x="54.75" y="490.97" :style="computeStyle(12)">About Me</text>
-      </g>
-      <g style="clip-path: url(#aboutme-c)">
-        <text x="54.75" y="490.97" :style="computeStyle(13)">About Me</text>
-      </g>
-      <g style="clip-path: url(#aboutme-b)">
-        <text x="54.75" y="490.97" :style="computeStyle(14)">About Me</text>
-      </g>
-      <g style="clip-path: url(#aboutme-a)">
-        <text x="54.75" y="490.97" :style="computeStyle(15)">About Me</text>
-      </g>
-    </g>
-    <g style="opacity: 0;">
-      <text x="54.75" y="282.48" style="fill: red">About Me</text>
+      <text class="group-1 final-text" x="54.75" y="109.97" style="opacity: 0">
+        About
+        <tspan style="opacity: 0">Me</tspan>
+      </text>
+      <text class="group-4 final-text" x="54.75" y="490.97" style="opacity: 0">
+        <tspan style="opacity: 0">About</tspan>
+        Me
+      </text>
     </g>
   </svg>
 </template>
@@ -139,31 +185,76 @@ export default {
     this.timeline.add({
       targets: this,
       sineMultiplier: 0,
-      duration: 400,
+      duration: 600,
       easing: "easeInOutSine",
     });
-    this.timeline.add({
-      targets: "text",
-      fill: "#f00",
-      duration: 400,
-      easing: "linear",
-    }, "+= 200");
+    this.timeline.add(
+      {
+        targets: ".group-1",
+        translateY: 172.51,
+        duration: 400,
+        easing: "easeInOutSine",
+      },
+      600
+    );
+    this.timeline.add(
+      {
+        targets: ".group-2",
+        translateY: 45.51,
+        duration: 400,
+        easing: "easeInOutSine",
+      },
+      600
+    );
+    this.timeline.add(
+      {
+        targets: ".group-3",
+        translateY: -81.49,
+        duration: 400,
+        easing: "easeInOutSine",
+      },
+      600
+    );
+    this.timeline.add(
+      {
+        targets: ".group-4",
+        translateY: -208.49,
+        duration: 400,
+        easing: "easeInOutSine",
+      },
+      600
+    );
+    this.timeline.add(
+      {
+        targets: ".final-text",
+        opacity: 1,
+        duration: 1,
+        easing: "linear",
+      },
+      600
+    );
+    this.timeline.add(
+      {
+        targets: ".to-fade",
+        fill: "#31332F",
+        duration: 400,
+        easing: "easeInOutQuint",
+      },
+      600
+    );
+        this.timeline.add(
+      {
+        targets: ".to-fade",
+        opacity: 0,
+        duration: 1,
+      },
+      999
+    );
   },
   methods: {
     computeStyle(i) {
-      const translate = (this.sineMultiplier * Math.sin(i - 8) * Math.PI) / 32;
+      const translate = (this.sineMultiplier * Math.sin(i - 8) * Math.PI) / 64;
       return `transform: translateX(${translate}px)`;
-    },
-  },
-  computed: {
-    phase2Opacity() {
-      const THRESHOLD_START = 0.25;
-      const THRESHOLD_END = 0.5;
-      if (this.progress < THRESHOLD_START) return `opacity: 1`;
-      if (this.progress > THRESHOLD_END) return `opacity: 0`;
-      const timeline = THRESHOLD_END - THRESHOLD_START;
-      const progress = (this.progress / timeline) * 100 - 100;
-      return `opacity: ${Math.abs(1 - progress / 100)}`;
     },
   },
   watch: {
@@ -180,7 +271,7 @@ text {
   font-size: 132px;
   font-family: 'ivy mode';
   font-weight: normal;
-  fill: rgb(227, 227, 227);
+  fill: #e3e3e3;
   user-select: none;
   transform-origin: 50% 50%;
 }

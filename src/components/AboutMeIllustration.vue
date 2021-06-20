@@ -8,6 +8,10 @@
     </div>
 
     <about-me-vector id="about-me-vector" :progress="progress" />
+    <div class="w-100 position-absolute text-right" style="bottom: 0; left: 0;">
+      <span class="display secondary--text">01</span>
+    </div>
+
   </section>
 </template>
 
