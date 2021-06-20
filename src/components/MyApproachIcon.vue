@@ -1,14 +1,14 @@
 <template>
   <svg viewBox="0 0 512 512" style="overflow: visible">
     <defs>
-      <clipPath id="a">
+      <clipPath id="my-approach-circle">
         <path
           d="M256,0C115,0,0,115.1,0,256S115.1,512,256,512,512,397,512,256,397,0,256,0Z"
           style="fill: none"
         />
       </clipPath>
     </defs>
-    <g style="clip-path: url(#a)">
+    <g style="clip-path: url(#my-approach-circle)">
       <path
         fill-rule="nonzero"
         :class="{ 'path-hidden': !phase1.showPhase1Path }"
@@ -27,7 +27,7 @@
       :class="{ 'path-hidden': !phase3.strokeAnimStarted }"
       d="M340.27,340.27c-138.22,138.23,-288,212.55,-334.55,166s27.78,-196.27,166.01,-334.54s288,-212.55,334.55,-166s-27.78,196.32,-166.01,334.54z"
     />
-    <path v-if="phase1.phase1Done" :d="computedPath" :style="phase2Style" />
+    <path v-if="phase1.phase1Done" :d="computedPath" style="fill: rgb(30,31,29)" :style="phase2Style" />
   </svg>
 </template>
 <script>
@@ -294,7 +294,7 @@ export default {
 <style lang="stylus" scoped>
 #my-approach-stroke-circle {
   fill: none;
-  stroke: #000;
+  stroke: rgb(30,21,29);
   stroke-miterlimit: 10;
 }
 
@@ -305,7 +305,7 @@ export default {
 .orbit {
   fill: none;
   stroke-width: 3.5px;
-  stroke: black;
+  stroke: rgb(30,21,29);
   transform-origin: 50% 50%;
   animation: rotate 32s linear infinite;
 }

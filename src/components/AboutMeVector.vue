@@ -55,7 +55,7 @@
       </clipPath>
     </defs>
 
-    <g>
+    <g style="transform: translateY(172.51px)">
       <g style="clip-path: url(#aboutme-p)">
         <text x="54.75" y="109.97" :style="computeStyle(0)">About Me</text>
       </g>
@@ -112,7 +112,7 @@
         <text x="54.75" y="490.97" :style="computeStyle(15)">About Me</text>
       </g>
     </g>
-    <g>
+    <g style="opacity: 0;">
       <text x="54.75" y="282.48" style="fill: red">About Me</text>
     </g>
   </svg>
@@ -132,33 +132,27 @@ export default {
     };
   },
   mounted() {
-    setTimeout(() => {
-      this.timeline = anime.timeline({
-        autoplay: true,
-        duration: 1000,
-      });
-      this.timeline.add({
-        targets: this,
-        sineMultiplier: 0,
-        duration: 400,
-        easing: "easeInOutElastic(1,1)",
-      });
-      this.timeline.add(
-        {
-          targets: this,
-          opacity: 0,
-          duration: 400,
-          easing: "easeInSine",
-        },
-        "+=400"
-      );
-    }, 1000);
+    this.timeline = anime.timeline({
+      autoplay: false,
+      duration: 1000,
+    });
+    this.timeline.add({
+      targets: this,
+      sineMultiplier: 0,
+      duration: 400,
+      easing: "easeInOutSine",
+    });
+    this.timeline.add({
+      targets: "text",
+      fill: "#f00",
+      duration: 400,
+      easing: "linear",
+    }, "+= 200");
   },
   methods: {
     computeStyle(i) {
       const translate = (this.sineMultiplier * Math.sin(i - 8) * Math.PI) / 32;
-      const transform = `transform: translateX(${translate}px)`;
-      return transform;
+      return `transform: translateX(${translate}px)`;
     },
   },
   computed: {
@@ -172,6 +166,12 @@ export default {
       return `opacity: ${Math.abs(1 - progress / 100)}`;
     },
   },
+  watch: {
+    progress() {
+      if (!this.timeline) return false;
+      this.timeline.seek(this.timeline.duration * (this.progress / 0.5));
+    },
+  },
 };
 </script>
 
@@ -180,7 +180,7 @@ text {
   font-size: 132px;
   font-family: 'ivy mode';
   font-weight: normal;
-  fill: hsl(40deg, 4, 214);
+  fill: rgb(227, 227, 227);
   user-select: none;
   transform-origin: 50% 50%;
 }

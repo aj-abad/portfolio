@@ -10,7 +10,7 @@
       class="h-100"
       :progress="aboutProgress"
     />
-    <div class="about-content h-100 flex-grow-1 py-16 px-16">
+    <div class="about-content h-100 flex-grow-1 py-8 px-16">
       <v-row>
         <v-col class="col-8">
           <div
@@ -31,6 +31,15 @@
           </div>
         </v-col>
       </v-row>
+      <div></div>
+      <div></div>
+      <div>
+        <p>
+          Seen enough already?
+          <br>
+          Download my CV ->
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -74,5 +83,10 @@ export default {
   #about-me-illustration {
     min-width: calc(100vw / 12 * 4);
   }
+}
+
+.about-content {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
 }
 </style>
