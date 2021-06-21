@@ -28,16 +28,16 @@
  
  @font-face {
      font-family: 'roc grotesk';
-     src: url('roc_grotesk_light.woff') format('woff');
+     src: url('roc_grotesk_regular.woff') format('woff');
      font-weight: lighter;
      font-style: normal;
  }
  
  @font-face {
      font-family: 'roc grotesk';
-     src: url('roc_grotesk_regular.woff') format('woff');
-     font-weight: lighter;
-     font-style: normal;
+     src: url('roc_grotesk_wide_bold.otf') format('woff');
+     font-weight: bold;
+     font-style: italic;
  }
  
  .display {

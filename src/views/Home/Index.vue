@@ -11,8 +11,16 @@
         class="px-6 pr-10"
         :scrollSpeed="scrollSpeed"
       />
-      <my-approach :activeColumn="myApproach" />
-      <my-work />
+      <section
+        id="sticky-scroll"
+        style="width: 300vw; height: 100vh; display: flex; position: relative"
+      >
+        <my-approach :activeColumn="myApproach" />
+        <theres-more style="position-absolute; top: 0" />
+        <div class="secondary w-100vw h-100vh position-relative" style="margin-left: 100vw; z-index: 2">
+          <my-work />
+        </div>
+      </section>
     </div>
   </main>
 </template>
@@ -24,6 +32,7 @@ import AboutMe from "@/views/About/AboutMe";
 import MyApproach from "@/views/About/MyApproach";
 import MyWork from "@/views/MyWork/MyWork";
 import MyApproachIllustration from "@/components/MyApproachIllustration";
+import TheresMore from "../../components/TheresMore.vue";
 export default {
   name: "Home",
   data() {
@@ -41,6 +50,7 @@ export default {
     MyApproach,
     MyWork,
     MyApproachIllustration,
+    TheresMore,
   },
   mounted() {
     setTimeout(() => {
@@ -61,6 +71,11 @@ export default {
     scrollHandler(e) {
       this.aboutProgress = e.currentElements.about?.progress ?? 0;
       this.scrollSpeed = e.speed;
+
+      if (e.currentElements.theresMore) {
+        console.log(e.currentElements.theresMore.progress);
+      }
+
       if (
         e.currentElements.deployColumn?.progress > 0.45 &&
         this.myApproach < 3

@@ -5,7 +5,7 @@
     data-scroll-id="myApproach"
     style="z-index: 2; min-width: 100vw; max-width: 100vw"
   >
-    <div ref="iconContainer" class="icon-container position-absolute">
+    <div ref="iconContainer" class="icon-container position-absolute" style="pointer-events: none">
       <div
         class="
           icon-placer
