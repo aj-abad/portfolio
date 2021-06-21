@@ -11,7 +11,11 @@
     <div class="w-100 position-absolute text-right" style="bottom: 0; left: 0">
       <span class="display">01</span>
     </div>
-    <div class="line" ref="line" :style="`transform: rotate(${angle}deg)`"></div>
+    <div
+      class="line"
+      ref="line"
+      :style="`transform: rotate(${angle}deg)`"
+    ></div>
   </section>
 </template>
 
@@ -25,17 +29,27 @@ export default {
   components: {
     AboutMeVector,
   },
-  data(){
-    return{
-      angle:0
-    }
+  data() {
+    return {
+      angle: 0,
+    };
   },
-  mounted() {
+  methods: {
+    setAngle() {
       const w = document.querySelector("#about-me-illustration").clientWidth;
       const h = document.querySelector("#about-me-illustration").clientHeight;
-      const angle = Math.atan(h / w) * 180/Math.PI;
-      this.angle = angle
+      const angle = (Math.atan(h / w) * 180) / Math.PI;
+      this.angle = angle;
+      console.log("reangled");
+    },
   },
+  mounted() {
+    this.setAngle();
+    window.addEventListener("resize", ()=>this.setAngle() );
+  },
+  beforeDestroy(){
+    window.removeEventListener("resize", ()=>this.setAngle() );
+  }
 };
 </script>
 
@@ -50,8 +64,8 @@ section {
 .position-absolute {
   font-size: 1.5rem;
   padding: 1rem 2rem;
-  color #e3e3e3
-  user-select none
+  color: #e3e3e3;
+  user-select: none;
 }
 
 .line {

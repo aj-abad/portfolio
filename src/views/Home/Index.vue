@@ -12,7 +12,6 @@
         :scrollSpeed="scrollSpeed"
       />
       <my-approach :activeColumn="myApproach" />
-      <theres-more-illustration />
       <my-work />
     </div>
   </main>
@@ -25,7 +24,6 @@ import AboutMe from "@/views/About/AboutMe";
 import MyApproach from "@/views/About/MyApproach";
 import MyWork from "@/views/MyWork/MyWork";
 import MyApproachIllustration from "@/components/MyApproachIllustration";
-import TheresMoreIllustration from "@/components/TheresMoreIllustration";
 export default {
   name: "Home",
   data() {
@@ -43,7 +41,6 @@ export default {
     MyApproach,
     MyWork,
     MyApproachIllustration,
-    TheresMoreIllustration,
   },
   mounted() {
     setTimeout(() => {
