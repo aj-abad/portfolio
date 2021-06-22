@@ -14,10 +14,20 @@
     data-scroll-target="#sticky-scroll"
     data-scroll-id="theresMore"
   >
-    <svg style="overflow: visible" viewBox="0 0 745 529">
+  <div class="position-absolute w-100" style="top: 0; left: 0">02</div>
+    <svg style="overflow: visible" viewBox="0 0 738 529">
       <text transform="translate(-4.63 79.15)" style="">
         <tspan>MY WORK</tspan>
-        <tspan v-for="i in 4" x="0" :y="112 * i" :key="i">MY WORK</tspan>
+        <tspan v-for="i in 4" x="0" :y="112 * i" :key="i">
+          <tspan
+            v-for="(char, j) in text"
+            :key="j"
+            :class="{
+              'stroke-only': rnd[i][j] === 1,
+              'no-fill': rnd[i][j] === 2,
+            }"
+          >{{ char }}</tspan>
+        </tspan>
       </text>
     </svg>
   </section>
@@ -28,24 +38,16 @@ export default {
   name: "TheresMore",
   data() {
     return {
-      text: "WANT,PROOF?",
-      translate: {
-        1: [0, 0],
-        2: [0, 0],
-        3: [0, 0],
-        4: [0, 0],
-        5: [0, 0],
-        6: [0, 0],
-        7: [0, 0],
-        8: [0, 0],
-        9: [0, 0],
-      },
+      text: ["M", "Y", " ", "W", "O", "R", "K"],
+      rnd: [
+        [0, 1, 2, 0, 0, 1, 1],
+        [0, 2, 1, 0, 2, 0, 0],
+        [0, 1, 2, 0, 1, 0, 2],
+        [0, 1, 1, 2, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 2],
+        [0, 1, 0, 0, 0, 1, 0],
+      ],
     };
-  },
-  mounted() {
-    for (let i = 0; i < 9; i++) {
-      return;
-    }
   },
 };
 </script>
@@ -53,15 +55,24 @@ export default {
 
 <style lang="stylus" scoped>
 svg {
-  height: 95vh;
+  height: 95vmin;
 }
 
 text {
   font-size: 117px;
   opacity: 0.87;
   stroke-miterlimit: 10;
+  stroke: black;
   stroke-width: 2px;
-  font-family: RocGrotesk-WideBold, Roc Grotesk;
-  font-weight: 700;
+  font-family: 'roc grotesk wide';
+}
+
+.stroke-only {
+  fill: transparent;
+}
+
+.no-fill {
+  fill: transparent;
+  stroke: transparent;
 }
 </style>

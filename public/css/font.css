@@ -34,10 +34,8 @@
  }
  
  @font-face {
-     font-family: 'roc grotesk';
-     src: url('roc_grotesk_wide_bold.otf') format('woff');
-     font-weight: bold;
-     font-style: italic;
+     font-family: 'roc grotesk wide';
+     src: url('roc_grotesk_wide_bold.woff') format('woff');
  }
  
  .display {

@@ -58,7 +58,7 @@ export default {
         el: document.querySelector("#scroll-container"),
         getSpeed: true,
         getDirection: true,
-        multiplier: 1,
+        multiplier: 0.75,
         lerp: 0.08,
         direction: "horizontal",
         smooth: true,
