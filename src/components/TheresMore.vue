@@ -17,15 +17,11 @@
   <div class="position-absolute w-100" style="top: 0; left: 0">02</div>
     <svg style="overflow: visible" viewBox="0 0 738 529">
       <text transform="translate(-4.63 79.15)" style="">
-        <tspan>MY WORK</tspan>
-        <tspan v-for="i in 4" x="0" :y="112 * i" :key="i">
+        <tspan v-for="(i, index) in 5" x="0" :y="112 * index" :key="index">
           <tspan
             v-for="(char, j) in text"
             :key="j"
-            :class="{
-              'stroke-only': rnd[i][j] === 1,
-              'no-fill': rnd[i][j] === 2,
-            }"
+            :class='getCharClass(index,j)'
           >{{ char }}</tspan>
         </tspan>
       </text>
@@ -39,16 +35,34 @@ export default {
   data() {
     return {
       text: ["M", "Y", " ", "W", "O", "R", "K"],
-      rnd: [
-        [0, 1, 2, 0, 0, 1, 1],
-        [0, 2, 1, 0, 2, 0, 0],
-        [0, 1, 2, 0, 1, 0, 2],
-        [0, 1, 1, 2, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 2],
-        [0, 1, 0, 0, 0, 1, 0],
+      textClassMatrix: [
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
       ],
     };
   },
+  methods:{
+    getCharClass(i,j){
+      if (j === 2) return null
+      const index = j > 2 ? j - i : j
+      return {
+        "stroke-only": this.textClassMatrix[i][index] === 1,
+        "no-fill": this.textClassMatrix[i][index] === 2
+      }
+    }
+  },
+  mounted(){
+    for (let i = 0; i < this.textClassMatrix.length; ++i){
+      for (let j = 0; j < this.textClassMatrix[i].length; ++j){
+        const rnd = Math.floor(Math.random() * 3);
+
+        this.$set(this.textClassMatrix[i], j, rnd)
+      }
+    }
+  }
 };
 </script>
 

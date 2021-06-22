@@ -32,7 +32,7 @@ import AboutMe from "@/views/About/AboutMe";
 import MyApproach from "@/views/About/MyApproach";
 import MyWork from "@/views/MyWork/MyWork";
 import MyApproachIllustration from "@/components/MyApproachIllustration";
-import TheresMore from "../../components/TheresMore.vue";
+import TheresMore from "@/components/TheresMore";
 export default {
   name: "Home",
   data() {
@@ -58,7 +58,7 @@ export default {
         el: document.querySelector("#scroll-container"),
         getSpeed: true,
         getDirection: true,
-        multiplier: 0.75,
+        multiplier: 1,
         lerp: 0.08,
         direction: "horizontal",
         smooth: true,
