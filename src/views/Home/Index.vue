@@ -16,7 +16,7 @@
         style="width: 300vw; height: 100vh; display: flex; position: relative"
       >
         <my-approach :activeColumn="myApproach" />
-        <theres-more style="position-absolute; top: 0" />
+        <theres-more :progress="theresMoreProgress" style="position-absolute; top: 0" />
         <div class="secondary w-100vw h-100vh position-relative" style="margin-left: 100vw; z-index: 2">
           <my-work />
         </div>
@@ -42,6 +42,7 @@ export default {
       scrollSpeed: 0,
       aboutProgress: 0,
       myApproach: 0,
+      theresMoreProgress: 0
     };
   },
   components: {
@@ -70,11 +71,8 @@ export default {
   methods: {
     scrollHandler(e) {
       this.aboutProgress = e.currentElements.about?.progress ?? 0;
+      this.theresMoreProgress = e.currentElements.theresMore?.progress ?? 0;
       this.scrollSpeed = e.speed;
-
-      if (e.currentElements.theresMore) {
-        console.log(e.currentElements.theresMore.progress);
-      }
 
       if (
         e.currentElements.deployColumn?.progress > 0.45 &&
