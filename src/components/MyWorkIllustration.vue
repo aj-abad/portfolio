@@ -1,11 +1,14 @@
 <template>
   <section
-    class="position-relative d-flex align-center justify-center"
+    class="position-relative pa-4 d-flex align-center"
     aria-label="My Work"
   >
-  <h1 class="my-work display" v-for="(i,j) in 36" :key="i" :style="`transform: rotateX(${j * 10}deg); backface-visibility: hidden`">
-    My Work
-  </h1>
+    <ul class="display">
+      <li class="my-4">Ateneo SALT</li>
+      <li class="my-4">Fight the Power</li>
+      <li class="my-4">Cura</li>
+      <li class="my-4">Metronome</li>
+    </ul>
   </section>
 </template>
 
@@ -21,12 +24,16 @@ section {
   border-left: 1px solid black;
   border-right: @border-left;
   overflow: hidden;
-  perspective 1000px
+  color: var(--text-light);
 }
 
-.my-work{
-  position: absolute
-  transform-style preserve-3d
-  transform-origin 0 0 -600px
+.my-work {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform-origin: 0 0 -600px;
+}
+
+ul{
+  font-size 4.5rem
 }
 </style>
