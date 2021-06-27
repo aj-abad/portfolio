@@ -30,10 +30,6 @@ ul {
     list-style-type: none;
 }
 
-button:focus {
-    outline: none;
-}
-
 
 /* ::-webkit-scrollbar {
     width: 0px;

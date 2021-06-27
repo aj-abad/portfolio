@@ -5,20 +5,20 @@
     data-scroll-id="myWork"
     style="z-index: 2"
   >
-   <MyWorkIllustration
-      id="my-work-illustration"
+   <ProjectList
+      id="project-list"
       class="h-100"
-      style="width: 50vw"
+      style="width: calc(100vw /12 * 4)"
     />
   </section>
 </template>
 
 <script>
-import MyWorkIllustration from "@/components/MyWorkIllustration"
+import ProjectList from "@/views/MyWork/ProjectList"
 export default {
   name: "MyWork",
   components:{
-    MyWorkIllustration
+    ProjectList
   }
 };
 </script>
