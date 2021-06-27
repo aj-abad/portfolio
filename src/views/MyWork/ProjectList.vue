@@ -1,6 +1,6 @@
 <template>
   <section
-    class="position-relative pa-4 d-flex align-center"
+    class="position-relative pa-4 d-flex flex-column justify-center"
     aria-label="My Work"
   >
     <ul class="display">

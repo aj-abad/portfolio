@@ -1,14 +1,18 @@
 const projects = [{
-        name: "Cura"
+        name: "Cura",
+        photo: ""
     },
     {
-        name: "Fight the Power"
+        name: "Fight the Power",
+        photo: ""
     },
     {
-        name: "Ateneo SALT"
+        name: "Ateneo SALT",
+        photo: "salt.png"
     },
     {
-        name: "Kixothermic"
+        name: "Kixothermic",
+        photo: ""
     },
 ]
 
