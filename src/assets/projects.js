@@ -14,6 +14,10 @@ const projects = [{
         name: "Kixothermic",
         photo: ""
     },
+    {
+        name: "Hallyulator",
+        photo: ""
+    },
 ]
 
 export default projects
