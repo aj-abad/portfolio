@@ -1,9 +1,9 @@
 <template>
   <svg class="project-name" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 345 965" style="overflow: visible;" :style="strokeOnly? 'z-index: 10' : null">
-    <text x="0" y="0" :class="{'stroke-only': strokeOnly}" transform="translate(133.07 964.58) rotate(-90)">
+    <text :x="getX(1) - 50" y="0" :class="{'stroke-only': strokeOnly}" transform="translate(133.07 964.58) rotate(-90)">
       {{words[0]}}
     </text>
-    <text x="20" y="0" :class="{'stroke-only': strokeOnly}" transform="translate(343.05 964.58) rotate(-90)">
+    <text :x="getX(-1) + 50" y="0" :class="{'stroke-only': strokeOnly}" transform="translate(343.05 964.58) rotate(-90)">
       {{words[1]}}
     </text>
   </svg>
@@ -14,7 +14,13 @@ export default {
   name: "ProjectName",
   props:{
     words: Array,
+    progress: Number,
     strokeOnly: Boolean
+  },
+  methods:{
+    getX(i){
+      return ((this.progress - 0.5) * 200 * i)
+    }
   }
 };
 </script>

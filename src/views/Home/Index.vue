@@ -16,11 +16,18 @@
         style="width: 300vw; height: 100vh; display: flex; position: relative"
       >
         <my-approach :activeColumn="myApproach" />
-        <my-work-illustration :progress="theresMoreProgress" style="position-absolute; top: 0" />
-        <div class="secondary w-100vw h-100vh position-relative" style="margin-left: 100vw; z-index: 2">
+        <my-work-illustration
+          :progress="theresMoreProgress"
+          style="position-absolute; top: 0"
+        />
+        <div
+          class="secondary w-100vw h-100vh position-relative"
+          style="margin-left: 100vw; z-index: 2"
+        >
           <my-work :progress="myWorkProgress" />
         </div>
       </section>
+      <project-details />
     </div>
   </main>
 </template>
@@ -33,6 +40,7 @@ import MyApproach from "@/views/About/MyApproach";
 import MyWork from "@/views/MyWork/MyWork";
 import MyApproachIllustration from "@/components/MyApproachIllustration";
 import MyWorkIllustration from "@/components/MyWorkIllustration";
+import ProjectDetails from "../MyWork/ProjectDetails.vue";
 export default {
   name: "Home",
   data() {
@@ -43,7 +51,7 @@ export default {
       aboutProgress: 0,
       myApproach: 0,
       theresMoreProgress: 0,
-      myWorkProgress: 0
+      myWorkProgress: 0,
     };
   },
   components: {
@@ -53,6 +61,7 @@ export default {
     MyWork,
     MyApproachIllustration,
     MyWorkIllustration,
+    ProjectDetails,
   },
   mounted() {
     setTimeout(() => {
@@ -73,7 +82,7 @@ export default {
     scrollHandler(e) {
       this.aboutProgress = e.currentElements.about?.progress ?? 0;
       this.theresMoreProgress = e.currentElements.theresMore?.progress ?? 0;
-      this.myWorkProgress = e.currentElements.myWork?.progress ?? 0
+      this.myWorkProgress = e.currentElements.myWork?.progress ?? 0;
       this.scrollSpeed = e.speed;
 
       if (

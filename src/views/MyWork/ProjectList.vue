@@ -11,6 +11,8 @@
         :key="i"
         @mouseenter="setActiveProject(i)"
         @mouseleave="setActiveProject(-1)"
+        data-scroll
+        :data-scroll-delay="`${i * 100}`"
       >
         <span class="project-name">
           <button>{{ project.name }}</button>
@@ -52,7 +54,7 @@ export default {
       this.spanTranslate = 0;
       const el = document.querySelector(`span[data-project=project-${i}]`);
       this.spanWidth = el.clientWidth;
-      window.requestAnimationFrame(() => this.animateSpan());
+      this.animateSpan();
     },
     animateSpan() {
       if (this.activeProject < 0) return false;
@@ -89,11 +91,11 @@ ul {
 
 .project-name, .project-name-active {
   display: inline-block;
-  transition opacity 0.2s
+  transition: opacity 0.2s;
 }
 
 .project-name-active {
-  opacity 0
+  opacity: 0;
   white-space: nowrap;
   position: absolute;
   left: 0;
