@@ -3,7 +3,7 @@
     <div class="h-100 d-flex case-study-grid">
       <div class="h-100 problem-solution">
         <div class="pa-8" style="border-bottom: 2px solid black">
-          <h6>The Goal</h6>
+          <h4>The Goal</h4>
           <p class="mb-8">
            We wanted to create a small shop.
           </p>
@@ -20,11 +20,9 @@
       </div>
       <div class="h-100">
         <div ref="theApproach">
-          <h1
-            class="text-center"
-          >
-            The Approach
-          </h1>
+        <h6>
+          Design
+        </h6>
         </div>
       </div>
     </div>
@@ -44,8 +42,10 @@ export default {
 
 
 
+
+
 .problem-solution {
-  width: calc(100vw / 12 * 6);
+  width: calc(100vw / 12 * 4);
   display: grid;
   grid-template-rows: 50% 50%;
   border-right: 2px solid black;
