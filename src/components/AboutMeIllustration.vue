@@ -40,7 +40,6 @@ export default {
       const h = document.querySelector("#about-me-illustration").clientHeight;
       const angle = (Math.atan(h / w) * 180) / Math.PI;
       this.angle = angle;
-      console.log("reangled");
     },
   },
   mounted() {

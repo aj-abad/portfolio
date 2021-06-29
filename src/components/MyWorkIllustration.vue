@@ -14,7 +14,6 @@
     data-scroll-target="#sticky-scroll"
     data-scroll-id="theresMore"
   >
-    <div class="position-absolute w-100" style="top: 0; left: 0">02</div>
     <svg style="overflow: visible" viewBox="0 0 738 529">
       <text transform="translate(-4.63 79.15)">
         <tspan

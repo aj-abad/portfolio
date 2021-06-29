@@ -3,6 +3,9 @@
     class="position-relative pa-4 d-flex flex-column justify-center"
     aria-label="My Work"
   >
+    <div class="w-100 position-absolute" style="top: 0; left: 0">
+      <span class="display">01</span>
+    </div>
     <ul class="display">
       <li
         class="position-relative my-6"
@@ -107,4 +110,5 @@ ul {
 .project-name-active span {
   display: inline-block;
 }
+
 </style>
