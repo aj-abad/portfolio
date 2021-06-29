@@ -1,14 +1,6 @@
 <template>
-  <section class="h-100vh d-flex">
-    <div class="d-flex h-100 align-center project-caption pr-16">
-      <p class="mb-0 mr-8">
-        Kixothermic is a web store that sells high-end sneakers, streetwear, and
-        luxury apparel.
-      </p>
-      <arrow style="min-width: 6rem; max-width: 6rem; display: inline-block" />
-    </div>
     <section class="h-100vh py-8 px-16">
-      <div class="h-100 d-flex case-study-grid">
+      <div class="h-100 d-flex case-study-grid" ref="grid">
         <div class="h-100 problem-solution">
           <div class="pa-8" style="border-bottom: 2px solid black">
             <h6>The Problem</h6>
@@ -35,24 +27,15 @@
         </div>
       </div>
     </section>
-  </section>
 </template>
 
 <script>
-import Arrow from "@/components/Arrow";
 export default {
-  name: "ProjectDetails",
-  components: {
-    Arrow,
-  },
-};
+  name: "CaseStudyGrid"
+}
 </script>
 
 <style lang="stylus" scoped>
-.project-caption {
-  width: calc(100vw / 12 * 4);
-}
-
 .case-study-grid {
   border: 2px solid black;
   font-size: 0.75rem;

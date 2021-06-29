@@ -24,8 +24,4 @@ export default {
   width: 100vw;
   overflow: hidden;
 }
-
-nav {
-  hei;
-}
 </style>
