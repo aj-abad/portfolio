@@ -15,6 +15,7 @@
       class="line"
       ref="line"
       :style="`transform: rotate(${angle}deg)`"
+      aria-hidden="true"
     ></div>
   </section>
 </template>
