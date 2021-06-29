@@ -17,7 +17,13 @@
     <div class="position-absolute w-100" style="top: 0; left: 0">02</div>
     <svg style="overflow: visible" viewBox="0 0 738 529">
       <text transform="translate(-4.63 79.15)">
-        <tspan class="move-to-center" v-for="(i, index) in 5" x="0" :y="112 * index" :key="index" >
+        <tspan
+          class="move-to-center"
+          v-for="(i, index) in 5"
+          x="0"
+          :y="112 * index"
+          :key="index"
+        >
           <tspan
             v-for="(char, jindex) in text"
             :key="jindex"
@@ -30,7 +36,6 @@
 </template>
 
 <script>
-import anime from "animejs/lib/anime.es"
 import matrixKeyframes from "@/assets/matrixkeyframes";
 import _ from "lodash";
 export default {
@@ -43,14 +48,13 @@ export default {
       text: ["M", "Y", " ", "W", "O", "R", "K"],
       finalRows: [0, 1, 2, 3, 4],
       textClassMatrix: [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
+        [2, 2, 2, 2, 2, 2],
+        [2, 2, 2, 2, 2, 2],
+        [2, 2, 2, 2, 2, 2],
+        [2, 2, 2, 2, 2, 2],
+        [2, 2, 2, 2, 2, 2],
       ],
       matrixKeyframes,
-      textAnimation: null
     };
   },
   methods: {
@@ -67,36 +71,24 @@ export default {
     const row = Math.floor(Math.random() * 5);
     this.finalRows.push(row);
     this.finalRows = _.shuffle(this.finalRows);
-
-    this.textAnimation = anime({  
-      autoplay: false,
-      targets: ".move-to-center",
-      duration: 100,
-      delay: 3000,
-      y: 224,
-      easing: "easeOutSine"
-    })
   },
   watch: {
     progress() {
-      const start = 0.15
-      const end = 0.25;
-      if (this.progress < start) return false
-      const animationProgress = ((this.progress - start) / end) * 100;
-      if (animationProgress > 100) return this.textAnimation.seek(100);
+      const start = 0.125;
+      const end = 0.5;
+      if (this.progress < start) return false;
+      const animationProgress = ((this.progress-start) / (end - start)) * 100;
+      if (animationProgress > 100) return false;
       const step = Math.floor(
         (animationProgress / 100) * this.matrixKeyframes.length
       );
-
       for (let i = 0; i < this.textClassMatrix.length; ++i) {
         for (let j = 0; j < this.textClassMatrix[i].length; ++j) {
-          if (this.finalRows[j] !== i) {
-            this.$set(
-              this.textClassMatrix[i],
-              j,
-              this.matrixKeyframes[step][i][j]
-            );
-          }
+          this.$set(
+            this.textClassMatrix[i],
+            j,
+            this.matrixKeyframes[step][i][j]
+          );
         }
       }
     },

@@ -13,14 +13,20 @@
     <div class="h-100 flex-grow-1 py-8 px-16 d-flex align-center">
       <div class="w-100 position-relative">
         <div class="img-holder">
-          <div class="text-parallax stroke" data-scroll data-scroll-speed="1.5">
-            <project-name
-              :progress="progress"
-              :words="activeProject.words"
-              :strokeOnly="true"
-            />
-          </div>
           <a target="_blank" href="#">
+            <div
+              class="text-parallax stroke"
+              data-scroll
+              data-scroll-speed="1.5"
+            >
+              <project-name
+                :progress="progress"
+                :word1="activeProject.words[0]"
+                :word2="activeProject.words[1]"
+                :strokeOnly="true"
+              />
+            </div>
+
             <div class="img-inner">
               <div class="noise"></div>
               <div
@@ -32,15 +38,11 @@
             </div>
           </a>
         </div>
-        <!-- <p class="project-description">
-          Hallyulator is a web application that calculates how lines of a song
-          are distributed between singers, such as in songs by K-Pop or J-Pop
-          groups.
-        </p> -->
         <div class="text-parallax" data-scroll data-scroll-speed="1.5">
           <project-name
             :progress="progress"
-            :words="activeProject.words"
+            :word1="activeProject.words[0]"
+            :word2="activeProject.words[1]"
             :strokeOnly="false"
           />
         </div>
