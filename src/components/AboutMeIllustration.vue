@@ -56,8 +56,6 @@ export default {
 <style lang="stylus" scoped>
 section {
   background-color: var(--bg-dark);
-  border-left: 1px solid black;
-  border-right: @border-left;
   overflow: hidden;
 }
 

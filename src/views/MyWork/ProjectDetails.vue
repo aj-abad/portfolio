@@ -3,7 +3,7 @@
     class="h-100vh d-flex position-relative secondary"
     style="z-index: 2"
   >
-    <div class="secondary d-flex h-100 align-center project-caption pr-16">
+    <div class="secondary d-flex h-100 align-center project-caption">
       <p class="mb-0 mr-8 text-justify">
         Kixothermic is a small web store that sells sneakers, streetwear, and
         luxury apparel.

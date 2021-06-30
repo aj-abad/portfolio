@@ -7,7 +7,7 @@
       />
       <about-me :aboutProgress="aboutProgress" />
       <my-approach-illustration
-        style="height: 200vh; width: auto; border-left: 1px solid black"
+        style="height: 200vh; width: auto; border-left: 1px solid var(--bg-dark)"
         class="px-6 pr-10"
         :scrollSpeed="scrollSpeed"
       />

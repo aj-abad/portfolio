@@ -125,11 +125,11 @@ export default {
 
 .col {
   height: 100%;
-  border-left: 1px solid black;
+  border-left: 2px solid var(--bg-dark);
 }
 
 .col:last-of-type {
-  border-right: 1px solid black;
+  border-right: 2px solid var(--bg-dark);
 }
 
 h1 .watermark {
