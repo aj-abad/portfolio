@@ -6,14 +6,14 @@
         @animationdone="introAnimationDoneHandler()"
       />
       <about-me :aboutProgress="aboutProgress" />
-      <my-approach-illustration
+      <my-process-illustration
         :scrollSpeed="scrollSpeed"
       />
       <section
         id="sticky-scroll"
         style="width: 300vw; height: 100vh; display: flex; position: relative"
       >
-        <my-approach :activeColumn="myApproach" />
+        <my-process :activeColumn="myProcess" />
         <my-work-illustration
           :progress="theresMoreProgress"
           style="position-absolute; top: 0"
@@ -34,9 +34,9 @@
 import LocomotiveScroll from "locomotive-scroll";
 import WelcomeHeader from "@/views/WelcomeHeader";
 import AboutMe from "@/views/About/AboutMe";
-import MyApproach from "@/views/About/MyApproach";
+import MyProcess from "@/views/About/MyProcess";
 import MyWork from "@/views/MyWork/MyWork";
-import MyApproachIllustration from "@/components/MyApproachIllustration";
+import MyProcessIllustration from "@/components/MyProcessIllustration";
 import MyWorkIllustration from "@/components/MyWorkIllustration";
 import ProjectDetails from "../MyWork/ProjectDetails.vue";
 export default {
@@ -47,7 +47,7 @@ export default {
       introAnimationDone: false,
       scrollSpeed: 0,
       aboutProgress: 0,
-      myApproach: 0,
+      myProcess: 0,
       theresMoreProgress: 0,
       myWorkProgress: 0,
     };
@@ -55,9 +55,9 @@ export default {
   components: {
     WelcomeHeader,
     AboutMe,
-    MyApproach,
+    MyProcess,
     MyWork,
-    MyApproachIllustration,
+    MyProcessIllustration,
     MyWorkIllustration,
     ProjectDetails,
   },
@@ -85,19 +85,19 @@ export default {
 
       if (
         e.currentElements.deployColumn?.progress > 0.45 &&
-        this.myApproach < 3
+        this.myProcess < 3
       ) {
-        this.myApproach = 3;
+        this.myProcess = 3;
       } else if (
         e.currentElements.developColumn?.progress > 0.45 &&
-        this.myApproach < 2
+        this.myProcess < 2
       ) {
-        this.myApproach = 2;
+        this.myProcess = 2;
       } else if (
         e.currentElements.designColumn?.progress > 0.45 &&
-        this.myApproach < 1
+        this.myProcess < 1
       ) {
-        this.myApproach = 1;
+        this.myProcess = 1;
       }
     },
     introAnimationDoneHandler() {

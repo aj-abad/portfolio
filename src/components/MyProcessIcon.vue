@@ -1,18 +1,18 @@
 <template>
   <svg viewBox="0 0 512 512" style="overflow: visible">
     <defs>
-      <clipPath id="my-approach-circle">
+      <clipPath id="my-process-circle">
         <path
           d="M256,0C115,0,0,115.1,0,256S115.1,512,256,512,512,397,512,256,397,0,256,0Z"
           style="fill: none"
         />
       </clipPath>
     </defs>
-    <g style="clip-path: url(#my-approach-circle)">
+    <g style="clip-path: url(#my-process-circle)">
       <path
         fill-rule="nonzero"
         :class="{ 'path-hidden': !phase1.showPhase1Path }"
-        id="my-approach-stroke-circle"
+        id="my-process-stroke-circle"
         :d="computedPath"
         :style="phase1Style"
       />
@@ -33,7 +33,7 @@
 <script>
 import anime from "animejs/lib/anime.es";
 export default {
-  name: "MyApproachIcon",
+  name: "MyProcessIcon",
   props: {
     activeColumn: Number,
   },
@@ -160,7 +160,7 @@ export default {
       this.phase1.showPhase1Path = true;
       const deez = this;
       anime({
-        targets: "#my-approach-stroke-circle",
+        targets: "#my-process-stroke-circle",
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: "easeInQuad",
         duration: 800,
@@ -292,7 +292,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-#my-approach-stroke-circle {
+#my-process-stroke-circle {
   fill: none;
   stroke: rgb(30,21,29);
   stroke-miterlimit: 10;

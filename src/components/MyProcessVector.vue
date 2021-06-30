@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "MyApproachVector",
+  name: "MyProcessVector",
   props: {
     translate: Number,
   },

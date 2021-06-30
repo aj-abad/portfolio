@@ -89,7 +89,13 @@ export default {
 
   &:hover{
     background var(--bg-dark)
-    color white
+    color var(--text-light)
+    & svg {
+      opacity 1
+      & polygon{
+        fill var(--text-light)
+      }      
+    }
   }
 }
 

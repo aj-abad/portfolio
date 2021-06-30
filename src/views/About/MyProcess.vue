@@ -2,7 +2,7 @@
   <section
     class="secondary h-100vh d-flex align-center position-relative"
     data-scroll
-    data-scroll-id="myApproach"
+    data-scroll-id="myProcess"
     style="z-index: 2; min-width: 100vw; max-width: 100vw"
   >
     <div ref="iconContainer" class="icon-container position-absolute" style="pointer-events: none">
@@ -18,7 +18,7 @@
         "
         style="width: calc(100% / 3); transition: left 0.4s"
       >
-        <my-approach-icon :activeColumn="activeColumn" class="h-100" />
+        <my-process-icon :activeColumn="activeColumn" class="h-100" />
       </div>
     </div>
     <v-row>
@@ -87,13 +87,13 @@
 
 <script>
 import anime from "animejs/lib/anime.es";
-import MyApproachIcon from "@/components/MyApproachIcon";
+import MyProcessIcon from "@/components/MyProcessIcon";
 export default {
-  name: "MyApproach",
+  name: "MyProcess",
   props: {
     activeColumn: Number,
   },
-  components: { MyApproachIcon },
+  components: { MyProcessIcon },
   mounted() {
     let padding = window
       .getComputedStyle(this.$refs.col, null)

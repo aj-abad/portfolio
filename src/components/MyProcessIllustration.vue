@@ -1,23 +1,23 @@
 <template>
   <div
     style="border-left: 2px solid var(--bg-dark)"
-    class="px-6"
+    class="px-8"
     data-scroll
-    data-scroll-id="myApproachIllustration"
+    data-scroll-id="myProcessIllustration"
   >
-    <MyApproachVector
+    <MyProcessVector
       :translate="translate1"
-      id="my-approach-1"
-      class="mr-8"
+      id="my-process-1"
+      class="mr-12"
     />
-    <MyApproachVector :translate="translate2" id="my-approach-2" />
+    <MyProcessVector :translate="translate2" id="my-process-2" />
   </div>
 </template>
 
 <script>
-import MyApproachVector from "@/components/MyApproachVector copy";
+import MyProcessVector from "@/components/MyProcessVector";
 export default {
-  name: "MyApproachIllustration",
+  name: "MyProcessIllustration",
   props: {
     scrollSpeed: Number,
   },
@@ -29,7 +29,7 @@ export default {
     };
   },
   components: {
-    MyApproachVector,
+    MyProcessVector,
   },
   mounted() {
     window.requestAnimationFrame(() => this.animateMarquee());
@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-#my-approach-1, #my-approach-2 {
+#my-process-1, #my-process-2 {
   height: 300vh;
   width: auto;
   transform: translateY(-50vh);
