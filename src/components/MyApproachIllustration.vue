@@ -1,16 +1,21 @@
 <template>
-  <div data-scroll data-scroll-id="myApproachIllustration">
+  <div
+    style="border-left: 2px solid var(--bg-dark)"
+    class="px-6"
+    data-scroll
+    data-scroll-id="myApproachIllustration"
+  >
     <MyApproachVector
       :translate="translate1"
       id="my-approach-1"
-      class="mr-12"
+      class="mr-8"
     />
     <MyApproachVector :translate="translate2" id="my-approach-2" />
   </div>
 </template>
 
 <script>
-import MyApproachVector from "@/components/MyApproachVector";
+import MyApproachVector from "@/components/MyApproachVector copy";
 export default {
   name: "MyApproachIllustration",
   props: {
@@ -31,6 +36,7 @@ export default {
   },
   methods: {
     animateMarquee() {
+      const textLength = 1172
       if (!this.isReverse) {
         this.translate1 += 0.5;
         this.translate2 -= 0.5;
@@ -40,14 +46,14 @@ export default {
       }
 
       if (
-        this.translate1 > 750.97 ||
-        (this.translate1 < 0 && this.translate1 < -750.97)
+        this.translate1 > textLength ||
+        (this.translate1 < 0 && this.translate1 < -textLength)
       ) {
         this.translate1 = 0;
       }
       if (
-        this.translate2 > 750.97 ||
-        (this.translate2 < 0 && this.translate2 < -750.97)
+        this.translate2 > textLength ||
+        (this.translate2 < 0 && this.translate2 < -textLength)
       ) {
         this.translate2 = 0;
       }
@@ -66,7 +72,7 @@ export default {
 
 <style lang="stylus" scoped>
 #my-approach-1, #my-approach-2 {
-  height: 200vh;
+  height: 300vh;
   width: auto;
   transform: translateY(-50vh);
 }
