@@ -10,9 +10,7 @@
       style="z-index: 10; width: 25vmin; height: 25vmin; opacity: 0"
       :style="slowFollowCursor"
     >
-      <div class="h-100 w-100 spinner-container">
-        <spinner class="w-100 h-100" id="spinner" />
-      </div>
+   
     </div>
 
     <svg
@@ -27,13 +25,9 @@
   </div>
 </template>
 <script>
-import Spinner from "./Spinner.vue";
 import gsap from "gsap";
 export default {
   name: "CustomCursor",
-  components: {
-    Spinner,
-  },
   data() {
     return {
       isInitialized: false,

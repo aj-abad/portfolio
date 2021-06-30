@@ -1,7 +1,7 @@
 <template>
   <section class="h-100vh w-100vw py-8 px-16">
-    <div class="h-100 d-flex case-study-grid" ref="grid">
-      <div class="problem-solution half">
+    <div class="h-100 case-study-grid">
+      <div class="problem-solution">
         <div class="pa-8" style="border-bottom: 2px solid black">
           <h6>The Goal</h6>
           <p class="mb-8">We wanted to create a small shop.</p>
@@ -16,8 +16,37 @@
           </p>
         </div>
       </div>
-      <div class="half">
-        <h1>test</h1>
+      <div class="links">
+        <router-link to="/" class="link d-flex justify-center align-center">
+          <h6>
+            Case Study
+            <svg viewBox="0 0 11 11" class="arrow right">
+              <polygon
+                points="3 0 3 2 7.59 2 0.64 8.95 2.05 10.36 9 3.41 9 8 11 8 11 0 3 0"
+              />
+            </svg>
+          </h6>
+        </router-link>
+        <a target="_blank" rel="noopener" href="/" class="link d-flex justify-center align-center">
+          <h6>
+            Live Site
+            <svg viewBox="0 0 11 11" class="arrow">
+              <polygon
+                points="3 0 3 2 7.59 2 0.64 8.95 2.05 10.36 9 3.41 9 8 11 8 11 0 3 0"
+              />
+            </svg>
+          </h6>
+        </a>
+        <a target="_blank" rel="noopener" href="/" class="link d-flex justify-center align-center">
+          <h6>
+            GitHub Repo
+            <svg viewBox="0 0 11 11" class="arrow">
+              <polygon
+                points="3 0 3 2 7.59 2 0.64 8.95 2.05 10.36 9 3.41 9 8 11 8 11 0 3 0"
+              />
+            </svg>
+          </h6>
+        </a>
       </div>
     </div>
   </section>
@@ -32,18 +61,9 @@ export default {
 <style lang="stylus" scoped>
 .case-study-grid {
   border: 2px solid var(--bg-dark);
-}
-
-.half {
-  width calc(100vw / 12 * 6);
-}
-
-.third {
-  width calc(100vw / 12 * 4);
-}
-
-.quarter{
-    width calc(100vw / 12 * 3);
+  display: grid;
+  grid-template: rows;
+  grid-template-columns: 50% 50%;
 }
 
 .problem-solution {
@@ -52,13 +72,33 @@ export default {
   border-right: 2px solid var(--bg-dark);
 }
 
-.approach-section-header {
-  // background: black;
-  // color: var(--bg);
-  position: absolute;
-  transform-origin: 0 0;
-  transform: rotate(-90deg) translateX(-100%);
-  border-bottom: 2px solid var(--bg-dark);
+.links {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
+.link {
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: none !important;
+  display: block;
+  text-transform: uppercase;
+
+  &:not(:last-of-type) {
+    border-bottom: 2px solid var(--bg-dark);
+  }
+
+  &:hover{
+    background var(--bg-dark)
+    color white
+  }
+}
+
+.arrow {
+  height: 0.6em;
+  opacity: 0.87;
+
+  &.right {
+    transform: rotate(45deg);
+  }
+}
 </style>
