@@ -9,6 +9,7 @@
       id="project-list"
       class="h-100"
       style="min-width: calc(100vw / 12 * 4)"
+      @project-change="projectChangeHandler"
     />
     <div class="h-100 flex-grow-1 py-8 px-16 d-flex align-center">
       <div class="w-100 position-relative">
@@ -52,6 +53,7 @@
 </template>
 
 <script>
+import projects from "@/assets/projects"
 import ProjectList from "@/views/MyWork/ProjectList";
 import ProjectName from "@/components/ProjectName";
 export default {
@@ -61,16 +63,18 @@ export default {
   },
   data() {
     return {
-      activeProject: {
-        photo: "salt.png",
-        words: ["ATENEO", "SALT"],
-      },
+      activeProject: projects[0],
     };
   },
   components: {
     ProjectList,
     ProjectName,
   },
+  methods:{
+    projectChangeHandler(project){
+      this.activeProject = project
+    }
+  }
 };
 </script>
 

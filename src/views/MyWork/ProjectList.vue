@@ -17,9 +17,8 @@
         data-scroll
         :data-scroll-delay="`${i * 100}`"
       >
-        <span class="project-name">
-          <button>{{ project.name }}</button>
-        </span>
+        <button class="project-name w-100 text-left" @click="selectProject(project)">{{ project.name }}</button>
+
         <span
           class="project-name-active"
           aria-hidden="true"
@@ -47,6 +46,7 @@ export default {
       activeProject: -1,
       spanWidth: 0,
       spanTranslate: 0,
+      selectedProject: 0,
     };
   },
   methods: {
@@ -65,6 +65,9 @@ export default {
       if (this.spanTranslate > this.spanWidth) this.spanTranslate = 0;
       window.requestAnimationFrame(() => this.animateSpan());
     },
+    selectProject(project){
+      this.$emit("project-change", project)
+    }
   },
 };
 </script>
@@ -103,10 +106,10 @@ ul {
   font-style: italic;
   transform: translateX(calc(-10% + 6px));
   user-select: none;
+  pointer-events none
 }
 
 .project-name-active span {
   display: inline-block;
 }
-
 </style>
