@@ -68,6 +68,7 @@ export default {
       window.requestAnimationFrame(() => this.animateSpan());
     },
     selectProject(i){
+      this.$store.commit("setProject", {project: i})
       this.$emit("project-change", i)
     }
   },

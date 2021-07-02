@@ -4,24 +4,33 @@
     style="z-index: 2"
   >
     <div class="secondary d-flex h-100 align-center project-caption">
-      <p class="mb-0 mr-8 text-justify">
-        Kixothermic is a small web store that sells sneakers, streetwear, and
-        luxury apparel.
-      </p>
+      <p class="mb-0 mr-8 text-justify" v-html="project.content.description"></p>
       <arrow style="min-width: 6rem; max-width: 6rem; display: inline-block" />
     </div>
-    <case-study-grid />
+    <case-study-grid :project="project" />
   </section>
 </template>
 
 <script>
+import projects from "@/assets/projects";
 import Arrow from "@/components/Arrow";
 import CaseStudyGrid from "./CaseStudyGrid.vue";
 export default {
   name: "ProjectDetails",
+  data() {
+    return {
+      projects,
+    };
+  },
   components: {
     Arrow,
     CaseStudyGrid,
+  },
+  computed: {
+    project() {
+      const i = this.$store.getters.getProject;
+      return this.projects[i]
+    },
   },
 };
 </script>

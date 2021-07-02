@@ -4,20 +4,15 @@
       <div class="problem-solution">
         <div class="pa-8" style="border-bottom: 2px solid var(--bg-dark)">
           <h6>The Goal</h6>
-          <p class="mb-8">We wanted to create a small shop.</p>
+          <p class="mb-8" v-html="project.content.goal"></p>
         </div>
         <div class="pa-8">
           <h6>The Solution</h6>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-            deleniti commodi culpa repellendus suscipit, similique veniam magni
-            nesciunt eius tempora accusamus. Cum, laboriosam. Consequatur sed,
-            harum praesentium corrupti voluptates quisquam.
-          </p>
+          <p v-html="project.content.solution"></p>
         </div>
       </div>
       <div class="links">
-        <router-link to="/" class="link d-flex justify-center align-center">
+        <router-link :to="`/casestudy/${project.links.caseStudy}`" class="link d-flex justify-center align-center">
           <h6>
             Case Study
             <svg viewBox="0 0 11 11" class="arrow right">
@@ -30,7 +25,7 @@
         <a
           target="_blank"
           rel="noopener"
-          href="/"
+          :href="project.links.site"
           class="link d-flex justify-center align-center"
         >
           <h6>
@@ -45,7 +40,7 @@
         <a
           target="_blank"
           rel="noopener"
-          href="/"
+          :href="project.links.repo"
           class="link d-flex justify-center align-center"
         >
           <h6>
@@ -65,11 +60,9 @@
 <script>
 export default {
   name: "CaseStudyGrid",
-  computed: {
-    project() {
-      return this.$store.getters.getProject;
-    },
-  },
+  props: {
+    project: Object
+  }
 };
 </script>
 

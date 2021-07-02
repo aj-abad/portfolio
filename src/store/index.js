@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        project: {}
+        project: 0
     },
     getters: {
         getProject: state => state.project
