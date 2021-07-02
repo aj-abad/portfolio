@@ -8,7 +8,7 @@
   >
     <g>
       <text
-        :x="getX(1) - 50"
+        :x="getX(1) - firstWordDelay"
         y="0"
         :class="{ 'stroke-only': strokeOnly }"
         transform="translate(133.07 964.58) rotate(-90)"
@@ -49,6 +49,9 @@ export default {
     },
   },
   computed: {
+    firstWordDelay(){
+      return 50
+    },
     secondWordDelay(){
       return (8 - this.word2.length) * 50
     }

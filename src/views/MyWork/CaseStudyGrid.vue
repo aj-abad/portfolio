@@ -2,7 +2,7 @@
   <section class="h-100vh w-100vw py-8 px-16">
     <div class="h-100 case-study-grid">
       <div class="problem-solution">
-        <div class="pa-8" style="border-bottom: 2px solid black">
+        <div class="pa-8" style="border-bottom: 2px solid var(--bg-dark)">
           <h6>The Goal</h6>
           <p class="mb-8">We wanted to create a small shop.</p>
         </div>
@@ -64,12 +64,13 @@ export default {
   display: grid;
   grid-template: rows;
   grid-template-columns: 50% 50%;
+  overflow hidden
 }
 
 .problem-solution {
   display: grid;
   grid-template-rows: 50% 50%;
-  border-right: 2px solid var(--bg-dark);
+  border-right: 2px solid var(--bg-dark)
 }
 
 .links {

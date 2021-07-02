@@ -9,6 +9,7 @@
       id="project-list"
       class="h-100"
       style="min-width: calc(100vw / 12 * 4)"
+      :projects="projects"
       @project-change="projectChangeHandler"
     />
     <div class="h-100 flex-grow-1 py-8 px-16 d-flex align-center">
@@ -63,6 +64,7 @@ export default {
   },
   data() {
     return {
+      projects,
       activeProject: projects[0],
     };
   },

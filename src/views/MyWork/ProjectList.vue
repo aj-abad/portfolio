@@ -2,6 +2,7 @@
   <section
     class="position-relative pa-4 d-flex flex-column justify-center"
     aria-label="My Work"
+    style="border-left: 2px solid black; border-right: 2px solid black"
   >
     <div class="w-100 position-absolute" style="top: 0; left: 0">
       <span class="display">01</span>
@@ -37,12 +38,13 @@
 </template>
 
 <script>
-import projects from "@/assets/projects";
 export default {
   name: "ProjectList",
+  props:{
+    projects: Array
+  },
   data() {
     return {
-      projects,
       activeProject: -1,
       spanWidth: 0,
       spanTranslate: 0,

@@ -1,0 +1,5 @@
+This is a redesign of Ateneo SALT's existing website.
+
+For an information architecture course, we had to pick a website to redesign.
+
+We chose to redesign Ateneo SALT's existing website. We made a medium-fidelity Figma prototype which I transformed into a static site. I used Vuetify for this project for rapid prototyping.
