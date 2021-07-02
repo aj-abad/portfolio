@@ -27,7 +27,12 @@
             </svg>
           </h6>
         </router-link>
-        <a target="_blank" rel="noopener" href="/" class="link d-flex justify-center align-center">
+        <a
+          target="_blank"
+          rel="noopener"
+          href="/"
+          class="link d-flex justify-center align-center"
+        >
           <h6>
             Live Site
             <svg viewBox="0 0 11 11" class="arrow">
@@ -37,7 +42,12 @@
             </svg>
           </h6>
         </a>
-        <a target="_blank" rel="noopener" href="/" class="link d-flex justify-center align-center">
+        <a
+          target="_blank"
+          rel="noopener"
+          href="/"
+          class="link d-flex justify-center align-center"
+        >
           <h6>
             GitHub Repo
             <svg viewBox="0 0 11 11" class="arrow">
@@ -55,6 +65,11 @@
 <script>
 export default {
   name: "CaseStudyGrid",
+  computed: {
+    project() {
+      return this.$store.getters.getProject;
+    },
+  },
 };
 </script>
 
@@ -64,13 +79,13 @@ export default {
   display: grid;
   grid-template: rows;
   grid-template-columns: 50% 50%;
-  overflow hidden
+  overflow: hidden;
 }
 
 .problem-solution {
   display: grid;
   grid-template-rows: 50% 50%;
-  border-right: 2px solid var(--bg-dark)
+  border-right: 2px solid var(--bg-dark);
 }
 
 .links {
@@ -88,14 +103,16 @@ export default {
     border-bottom: 2px solid var(--bg-dark);
   }
 
-  &:hover{
-    background var(--bg-dark)
-    color var(--text-light)
+  &:hover {
+    background: var(--bg-dark);
+    color: var(--text-light);
+
     & svg {
-      opacity 1
-      & polygon{
-        fill var(--text-light)
-      }      
+      opacity: 1;
+
+      & polygon {
+        fill: var(--text-light);
+      }
     }
   }
 }

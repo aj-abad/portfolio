@@ -2,7 +2,12 @@ import curaTxt from "raw-loader!../assets/txt/cura.txt"
 const cura = curaTxt.split("\n").filter(e => e.length > 2)
 import fightTxt from "raw-loader!../assets/txt/fightthepower.txt"
 const fight = fightTxt.split("\n").filter(e => e.length > 2)
-
+import saltTxt from "raw-loader!../assets/txt/ateneosalt.txt"
+const salt = saltTxt.split("\n").filter(e => e.length > 2)
+import kixoTxt from "raw-loader!../assets/txt/kixothermic.txt"
+const kixo = kixoTxt.split("\n").filter(e => e.length > 2)
+import hallyuTxt from "raw-loader!../assets/txt/hallyulator.txt"
+const hallyu = hallyuTxt.split("\n").filter(e => e.length > 2)
 
 
 const projects = [{
@@ -39,19 +44,46 @@ const projects = [{
         name: "Ateneo SALT",
         photo: "salt.png",
         words: ["ATENEO", "SALT"],
+        content: {
+            description: salt[0],
+            goal: salt[1],
+            solution: salt[2]
+        },
+        links: {
+            site: "https://ateneosaltprototype.netlify.app",
+            repo: null,
+            caseStudy: "ateneosalt"
+        }
     },
     {
         name: "Kixothermic",
         photo: "kixothermic.png",
-        description: "Kixothermic is a web store that sells high-end sneakers, streetwear, and luxury apparel.",
         words: ["KIXO-", "THERMIC"],
-        goal: `I wanted to create a small consignment-slash-reselling shop that also `
+        content: {
+            description: kixo[0],
+            goal: kixo[1],
+            solution: kixo[2]
+        },
+        links: {
+            site: "https://kixothermic.netlify.app",
+            repo: null,
+            caseStudy: "kixothermic"
+        }
     },
     {
         name: "Hallyulator",
         photo: "hallyulator.png",
-        description: "Hallyulator is a web app that calculates line distribution in a song with multiple singers, such as in a K-Pop or J-Pop song.",
-        words: ["HALLYU-", "LATOR"]
+        words: ["HALLYU-", "LATOR"],
+        content: {
+            description: hallyu[0],
+            goal: hallyu[1],
+            solution: hallyu[2]
+        },
+        links: {
+            site: "https://hallyulator.netlify.app",
+            repo: null,
+            caseStudy: "hallyulator"
+        }
     },
 ]
 

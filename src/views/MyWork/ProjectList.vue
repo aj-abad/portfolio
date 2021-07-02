@@ -18,7 +18,7 @@
         data-scroll
         :data-scroll-delay="`${i * 100}`"
       >
-        <button class="project-name w-100 text-left" @click="selectProject(project)">{{ project.name }}</button>
+        <button class="project-name w-100 text-left" @click="selectProject(i)">{{ project.name }}</button>
 
         <span
           class="project-name-active"
@@ -67,8 +67,8 @@ export default {
       if (this.spanTranslate > this.spanWidth) this.spanTranslate = 0;
       window.requestAnimationFrame(() => this.animateSpan());
     },
-    selectProject(project){
-      this.$emit("project-change", project)
+    selectProject(i){
+      this.$emit("project-change", i)
     }
   },
 };

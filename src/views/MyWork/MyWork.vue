@@ -23,8 +23,8 @@
             >
               <project-name
                 :progress="progress"
-                :word1="activeProject.words[0]"
-                :word2="activeProject.words[1]"
+                :word1="projects[activeProject].words[0]"
+                :word2="projects[activeProject].words[1]"
                 :strokeOnly="true"
               />
             </div>
@@ -34,7 +34,7 @@
               <div
                 id="project-photo"
                 :style="`background-image: url('img/projects/${
-                  activeProject.photo
+                  projects[activeProject].photo
                 }'); left: ${-250 + 250 * progress}px`"
               ></div>
             </div>
@@ -43,8 +43,8 @@
         <div class="text-parallax" data-scroll data-scroll-speed="1.5">
           <project-name
             :progress="progress"
-            :word1="activeProject.words[0]"
-            :word2="activeProject.words[1]"
+            :word1="projects[activeProject].words[0]"
+            :word2="projects[activeProject].words[1]"
             :strokeOnly="false"
           />
         </div>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import projects from "@/assets/projects"
+import projects from "@/assets/projects";
 import ProjectList from "@/views/MyWork/ProjectList";
 import ProjectName from "@/components/ProjectName";
 export default {
@@ -65,18 +65,18 @@ export default {
   data() {
     return {
       projects,
-      activeProject: projects[0],
+      activeProject: 0,
     };
   },
   components: {
     ProjectList,
     ProjectName,
   },
-  methods:{
-    projectChangeHandler(project){
-      this.activeProject = project
-    }
-  }
+  methods: {
+    projectChangeHandler(i) {
+      this.activeProject = i;
+    },
+  },
 };
 </script>
 
