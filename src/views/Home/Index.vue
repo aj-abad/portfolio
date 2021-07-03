@@ -6,9 +6,7 @@
         @animationdone="introAnimationDoneHandler()"
       />
       <about-me :aboutProgress="aboutProgress" />
-      <my-process-illustration
-        :scrollSpeed="scrollSpeed"
-      />
+      <my-process-illustration :scrollSpeed="scrollSpeed" />
       <section
         id="sticky-scroll"
         style="width: 300vw; height: 100vh; display: flex; position: relative"
@@ -25,7 +23,20 @@
           <my-work :progress="myWorkProgress" />
         </div>
       </section>
-      <project-details />
+      <div
+        class="d-flex"
+        style="width: calc(200vw + 100vw / 12 * 4)"
+        id="sticky-contact"
+      >
+        <project-details :contactProgress="contactProgress" />
+        <div
+          style="min-width: 100vw"
+          data-scroll
+          data-scroll-id="contactSpacer"
+        >
+          <contact :contactProgress="contactProgress"/>
+        </div>
+      </div>
     </div>
   </main>
 </template>
@@ -39,6 +50,7 @@ import MyWork from "@/views/MyWork/MyWork";
 import MyProcessIllustration from "@/components/MyProcessIllustration";
 import MyWorkIllustration from "@/components/MyWorkIllustration";
 import ProjectDetails from "../MyWork/ProjectDetails.vue";
+import Contact from '../Contact/Contact.vue';
 export default {
   name: "Home",
   data() {
@@ -50,6 +62,7 @@ export default {
       myProcess: 0,
       theresMoreProgress: 0,
       myWorkProgress: 0,
+      contactProgress: 0,
     };
   },
   components: {
@@ -60,6 +73,7 @@ export default {
     MyProcessIllustration,
     MyWorkIllustration,
     ProjectDetails,
+    Contact,
   },
   mounted() {
     setTimeout(() => {
@@ -72,15 +86,23 @@ export default {
         direction: "horizontal",
         smooth: true,
       });
-
       this.scroll.on("scroll", this.scrollHandler);
     }, 100);
+
+    setTimeout(() => {
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          this.scroll.scrollTo(1000, { duration: 0, disableLerp: true });
+        }
+      });
+    }, 200);
   },
   methods: {
     scrollHandler(e) {
       this.aboutProgress = e.currentElements.about?.progress ?? 0;
       this.theresMoreProgress = e.currentElements.theresMore?.progress ?? 0;
       this.myWorkProgress = e.currentElements.myWork?.progress ?? 0;
+      this.contactProgress = e.currentElements.contactSpacer?.progress ?? 0;
       this.scrollSpeed = e.speed;
 
       if (

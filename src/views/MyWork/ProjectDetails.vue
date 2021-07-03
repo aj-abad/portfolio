@@ -7,7 +7,7 @@
       <p class="mb-0 mr-8 text-justify" v-html="project.content.description"></p>
       <arrow style="min-width: 6rem; max-width: 6rem; display: inline-block" />
     </div>
-    <case-study-grid :project="project" />
+    <case-study-grid :contactProgress="contactProgress" :project="project" />
   </section>
 </template>
 
@@ -17,6 +17,9 @@ import Arrow from "@/components/Arrow";
 import CaseStudyGrid from "./CaseStudyGrid.vue";
 export default {
   name: "ProjectDetails",
+  props:{
+    contactProgress: Number
+  },
   data() {
     return {
       projects,

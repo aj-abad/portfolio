@@ -1,5 +1,8 @@
 <template>
-  <section class="h-100vh w-100vw py-8 px-16">
+  <section
+    class="h-100vh w-100vw py-8 px-16 position-relative"
+    :style="`left: ${left}vw`"
+  >
     <div class="h-100 case-study-grid">
       <div class="problem-solution">
         <div class="pa-8" style="border-bottom: 2px solid var(--bg-dark)">
@@ -12,7 +15,10 @@
         </div>
       </div>
       <div class="links">
-        <router-link :to="`/casestudy/${project.links.caseStudy}`" class="link d-flex justify-center align-center">
+        <router-link
+          :to="`/casestudy/${project.links.caseStudy}`"
+          class="link d-flex justify-center align-center"
+        >
           <h6>
             Case Study
             <svg viewBox="0 0 11 11" class="arrow right">
@@ -61,7 +67,21 @@
 export default {
   name: "CaseStudyGrid",
   props: {
-    project: Object
+    contactProgress: Number,
+    project: Object,
+  },
+  data(){
+    return{
+      left: 0
+    }
+  },
+  watch:{
+    contactProgress(){
+      if (parseFloat(this.contactProgress.toFixed(2)) === 0) this.left = 0;
+
+
+      this.left = this.contactProgress / 0.5 * 100
+    }
   }
 };
 </script>
