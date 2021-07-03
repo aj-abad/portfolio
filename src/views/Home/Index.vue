@@ -23,19 +23,10 @@
           <my-work :progress="myWorkProgress" />
         </div>
       </section>
-      <div
-        class="d-flex"
-        style="width: calc(200vw + 100vw / 12 * 4)"
-        id="sticky-contact"
-      >
-        <project-details :contactProgress="contactProgress" />
-        <div
-          style="min-width: 100vw"
-          data-scroll
-          data-scroll-id="contactSpacer"
-        >
-          <contact :contactProgress="contactProgress"/>
-        </div>
+      <project-details />
+      <contact-illustration :contactIllustrationProgress="contactIllustrationProgress" :contactProgress="contactProgress" />
+      <div style="min-width: 100vw" data-scroll data-scroll-id="contactSpacer">
+        <contact :contactProgress="contactProgress" />
       </div>
     </div>
   </main>
@@ -50,7 +41,8 @@ import MyWork from "@/views/MyWork/MyWork";
 import MyProcessIllustration from "@/components/MyProcessIllustration";
 import MyWorkIllustration from "@/components/MyWorkIllustration";
 import ProjectDetails from "../MyWork/ProjectDetails.vue";
-import Contact from '../Contact/Contact.vue';
+import Contact from "../Contact/Contact.vue";
+import ContactIllustration from "../../components/ContactIllustration.vue";
 export default {
   name: "Home",
   data() {
@@ -62,6 +54,7 @@ export default {
       myProcess: 0,
       theresMoreProgress: 0,
       myWorkProgress: 0,
+      contactIllustrationProgress: 0,
       contactProgress: 0,
     };
   },
@@ -74,6 +67,7 @@ export default {
     MyWorkIllustration,
     ProjectDetails,
     Contact,
+    ContactIllustration,
   },
   mounted() {
     setTimeout(() => {
@@ -103,6 +97,7 @@ export default {
       this.theresMoreProgress = e.currentElements.theresMore?.progress ?? 0;
       this.myWorkProgress = e.currentElements.myWork?.progress ?? 0;
       this.contactProgress = e.currentElements.contactSpacer?.progress ?? 0;
+       this.contactIllustrationProgress = e.currentElements.contactIllustration?.progress ?? 0;
       this.scrollSpeed = e.speed;
 
       if (
