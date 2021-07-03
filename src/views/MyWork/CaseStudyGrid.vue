@@ -1,7 +1,7 @@
 <template>
   <section
     class="h-100vh w-100vw py-8 px-16 position-relative"
-    :style="`left: ${left}vw`"
+    :style="`left: ${left}vw; transform: scale(${scale})`"
   >
     <div class="h-100 case-study-grid">
       <div class="problem-solution">
@@ -70,19 +70,23 @@ export default {
     contactProgress: Number,
     project: Object,
   },
-  data(){
-    return{
-      left: 0
-    }
+  data() {
+    return {
+      left: 0,
+    };
   },
-  watch:{
-    contactProgress(){
+  computed: {
+    scale() {
+      return 1
+    },
+  },
+  watch: {
+    contactProgress() {
       if (parseFloat(this.contactProgress.toFixed(2)) === 0) this.left = 0;
 
-
-      this.left = this.contactProgress / 0.5 * 100
-    }
-  }
+      this.left = (this.contactProgress / 0.5) * 100;
+    },
+  },
 };
 </script>
 
