@@ -37,17 +37,17 @@ export default {
   },
   computed: {
     left() {
-      return this.contactProgress / 0.5 * 100;
+      return (this.contactProgress / 0.5) * 100;
     },
     progress() {
-      let progress = (this.contactIllustrationProgress / 0.5);
-      if (progress > 1)
-        progress -= (progress - 1) * 0.95
-      return progress
+      let progress = Math.pow(this.contactIllustrationProgress / 0.5, 1 / 2);
+      progress = progress > 1 ? progress - ((progress - 1) * 3/4) : progress;
+      return progress;
     },
-  },
-  watch: {
-    contactProgress() {},
+    offset(){
+      if (this.progress < 1) return 0
+      return this.progress
+    }
   },
 };
 </script>
@@ -56,8 +56,6 @@ export default {
 h1 {
   color: var(--text-light);
   font-size: 10vw;
-  margin-left 32px
-  
 
   & span {
     display: inline-block;

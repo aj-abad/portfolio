@@ -83,13 +83,13 @@ export default {
       this.scroll.on("scroll", this.scrollHandler);
     }, 100);
 
-    setTimeout(() => {
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          this.scroll.scrollTo(1000, { duration: 0, disableLerp: true });
-        }
-      });
-    }, 200);
+    // setTimeout(() => {
+    //   document.addEventListener("keydown", (e) => {
+    //     if (e.key === "Escape") {
+    //       this.scroll.scrollTo(1000, { duration: 0, disableLerp: true });
+    //     }
+    //   });
+    // }, 200);
   },
   methods: {
     scrollHandler(e) {
@@ -121,6 +121,21 @@ export default {
       // this.scroll.scrollTo(window.innerWidth);
     },
   },
+  computed:{
+    lock(){
+      return this.$store.getters.getLockStatus
+    }
+  },
+  watch:{
+    lock(){
+      if (this.lock){
+        this.scroll.stop()
+      }
+      else{
+        this.scroll.start()
+      }
+    }
+  }
 };
 </script>
 
