@@ -1,7 +1,7 @@
 <template>
   <header
     id="main-header"
-    class="h-100vh w-100vw pa-16 d-flex align-center"
+    class="h-100vh w-100vw pa-16"
     data-scroll
     data-scroll-speed="-9.5"
   >
@@ -135,6 +135,9 @@ export default {
 
 <style lang="stylus">
 #main-header {
+  display: flex;
+  align-items: center;
+
   & * {
     transform-style: preserve-3d;
   }
@@ -172,8 +175,8 @@ export default {
 .client-no-longer-active, .client-not-yet-active {
   opacity: 0;
   filter: blur(5px);
-  user-select none
-  pointer-events none
+  user-select: none;
+  pointer-events: none;
 }
 
 @media (max-width: 1366px) {
@@ -183,6 +186,27 @@ export default {
 
   .lead {
     font-size: calc((3rem * 2 / 3));
+  }
+}
+
+@media (max-width: 1280px) {
+  #main-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero {
+    font-size: 15vw;
+    perspective: 200px;
+    text-align: center;
+
+    span {
+      transform-origin: 50% 50% -50px;
+    }
+  }
+
+  .lead {
+    font-size: 4.4vw;
   }
 }
 </style>

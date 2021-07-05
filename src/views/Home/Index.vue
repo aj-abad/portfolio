@@ -1,5 +1,6 @@
 <template>
   <main>
+    <custom-cursor/>
     <div id="scroll-container" style="width: 10000vw">
       <welcome-header
         v-if="!introAnimationDone"
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+import CustomCursor from "@/components/CustomCursor"
 import LocomotiveScroll from "locomotive-scroll";
 import WelcomeHeader from "@/views/WelcomeHeader";
 import AboutMe from "@/views/About/AboutMe";
@@ -59,6 +61,7 @@ export default {
     };
   },
   components: {
+    CustomCursor,
     WelcomeHeader,
     AboutMe,
     MyProcess,

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <custom-cursor v-if="!isMobile" />
     <v-app id="wrapper">
       <button id="nav-btn">
         <div class="menu-bar"></div>
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-import CustomCursor from "@/components/CustomCursor";
 import Preloader from "./views/Preloader.vue";
 const BREAKPOINT = 1280;
 export default {
@@ -29,7 +27,6 @@ export default {
     });
   },
   components: {
-    CustomCursor,
     Preloader,
   },
 };

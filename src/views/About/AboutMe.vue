@@ -37,13 +37,6 @@
         <p>
           Seen enough already?
           <br />
-          <a class="display" href="resume" style="font-weight: bold">
-            Download my résumé ->
-          </a>
-          <br />
-            <a class="display" href="resume" style="font-weight: bold">
-            Talk to me ->
-          </a>
         </p>
       </div>
     </div>
