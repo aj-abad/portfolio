@@ -135,6 +135,10 @@ export default {
         this.scroll.start()
       }
     }
+  },
+  beforeDestroy(){
+    this.scroll.destroy();
+    this.scroll = null
   }
 };
 </script>

@@ -45,10 +45,10 @@ export default {
   },
   mounted() {
     this.setAngle();
-    window.addEventListener("resize", ()=>this.setAngle() );
+    window.addEventListener("resize", this.setAngle, true );
   },
   beforeDestroy(){
-    window.removeEventListener("resize", ()=>this.setAngle() );
+    window.removeEventListener("resize", this.setAngle, true );
   }
 };
 </script>
