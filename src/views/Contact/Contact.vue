@@ -40,14 +40,6 @@
               label="Your Message"
             />
           </div>
-          <div class="mb-2">
-            <v-text-field
-              @focus="focusHandler()"
-              @focusout="focusOutHandler()"
-              outlined
-              label="Verification: what's 60 + 9?"
-            />
-          </div>
           <v-btn>Send</v-btn>
         </div>
       </v-col>
