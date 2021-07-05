@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <custom-cursor />
+    <custom-cursor v-if="!isMobile" />
     <v-app id="wrapper">
       <button id="nav-btn">
         <div class="menu-bar"></div>
         <div class="menu-bar"></div>
       </button>
-      <router-view id="view" />
+      <router-view id="view" :isMobile="isMobile" />
     </v-app>
     <preloader />
   </div>
@@ -15,8 +15,19 @@
 <script>
 import CustomCursor from "@/components/CustomCursor";
 import Preloader from "./views/Preloader.vue";
+const BREAKPOINT = 1280;
 export default {
   name: "App",
+  data() {
+    return {
+      isMobile: window.innerWidth < BREAKPOINT,
+    };
+  },
+  mounted() {
+    window.addEventListener("resize", () => {
+      this.isMobile = window.innerWidth < BREAKPOINT;
+    });
+  },
   components: {
     CustomCursor,
     Preloader,
@@ -38,23 +49,25 @@ export default {
   position: fixed;
   top: 32px;
   right: @top;
-  z-index 100
-  display flex
-  justify-content center
-  align-items flex-end
-  flex-direction column
-  mix-blend-mode difference
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  mix-blend-mode: difference;
 
-  .menu-bar{
-    width 100%
-    height 2px
-    background white
-    opacity 0.87
-    &:first-of-type{
-      margin-bottom 12px 
+  .menu-bar {
+    width: 100%;
+    height: 2px;
+    background: white;
+    opacity: 0.87;
+
+    &:first-of-type {
+      margin-bottom: 12px;
     }
-    &:last-of-type{
-      width: 75%
+
+    &:last-of-type {
+      width: 75%;
     }
   }
 }

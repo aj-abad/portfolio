@@ -1,24 +1,19 @@
 <template>
   <Home v-if="!isMobile" />
+  <HomeMobile v-else />
 </template>
 
 <script>
-const BREAKPOINT = 1280
 import Home from "@/views/Home/Index";
+import HomeMobile from "@/views/_Mobile/Index";
 export default {
   name: "Index",
-  data(){
-    return{
-      isMobile: window.innerWidth < BREAKPOINT
-    }
+  props: {
+    isMobile: Boolean,
   },
   components: {
     Home,
+    HomeMobile,
   },
-  mounted(){
-    window.addEventListener("resize", ()=>{
-      this.isMobile = window.innerWidth < BREAKPOINT
-    })
-  }
 };
 </script>
