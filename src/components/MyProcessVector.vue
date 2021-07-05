@@ -1,6 +1,6 @@
 <template>
   <svg style="overflow: visible" viewBox="0 0 88 7032">
-    <g :style="`transform: translateY(${translate}px)`">
+    <g :style="`opacity: 0.87; transform: translateY(${translate}px)`">
       <text transform="matrix(0, -1, 1, 0, 79.47, 7038.68)">MY PROCESS —</text>
 
       <text transform="matrix(0, -1, 1, 0, 79.47, 5866.68)">MY PROCESS —</text>
