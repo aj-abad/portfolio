@@ -15,6 +15,24 @@
     data-scroll-id="theresMore"
   >
     <svg style="overflow: visible" viewBox="0 0 738 529">
+      <defs>
+        <clipPath id="mywork-circle-clip">
+          <circle id="" cx="347" cy="274.5" :r="clipRadius" />
+        </clipPath>
+      </defs>
+      <g style="clip-path: url(#mywork-circle-clip)">
+        <text transform="translate(-4.63 79.15)">
+          <tspan
+            class="move-to-center"
+            v-for="(i, index) in 5"
+            x="0"
+            :y="112 * index"
+            :key="index"
+          >
+            <tspan v-for="(char, jindex) in text" :key="jindex">{{ char }}</tspan>
+          </tspan>
+        </text>
+      </g>
       <text transform="translate(-4.63 79.15)">
         <tspan
           class="move-to-center"
@@ -54,6 +72,7 @@ export default {
         [2, 2, 2, 2, 2, 2],
       ],
       matrixKeyframes,
+      clipRadius: 0,
     };
   },
   methods: {
@@ -74,10 +93,19 @@ export default {
   watch: {
     progress() {
       const start = 0.125;
-      const end = 0.5;
+      const end = 0.4;
+      const clipEnd = 0.5;
+      const maxClipRadius = 454.8;
       if (this.progress < start) return false;
-      const animationProgress = ((this.progress-start) / (end - start)) * 100;
-      if (animationProgress > 100) return false;
+      const animationProgress = ((this.progress - start) / (end - start)) * 100;
+      if (animationProgress > 100) {
+        let clipRadiusCoefficient = (this.progress - end) / (clipEnd - end)
+        clipRadiusCoefficient = Math.pow(clipRadiusCoefficient, 4)
+        this.clipRadius =
+          maxClipRadius * clipRadiusCoefficient;
+        return false;
+      }
+      this.clipRadius = 0
       const step = Math.floor(
         (animationProgress / 100) * this.matrixKeyframes.length
       );
@@ -99,11 +127,11 @@ export default {
 <style lang="stylus" scoped>
 svg {
   height: calc(100vh - 1rem * 2);
+  opacity: 0.87;
 }
 
 text {
   font-size: 117px;
-  opacity: 0.87;
   stroke-miterlimit: 10;
   stroke: black;
   stroke-width: 2px;
