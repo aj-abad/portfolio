@@ -14,7 +14,7 @@
     data-scroll
     data-scroll-id="contactIllustration"
   >
-    <div class="position-relative" :style="`left: ${(progress - 1) * 50}vw`">
+    <div class="position-relative" :style="`left: calc(${(progress - 1) * 50}vw + ${offset}px);`">
       <h1 class="display w-100">
         <span :style="`margin-left: ${0 * progress}vw`">Let's</span>
       </h1>
@@ -46,7 +46,7 @@ export default {
     },
     offset(){
       if (this.progress < 1) return 0
-      return this.progress
+      return Math.pow((this.progress - 1) * 250, 2) * -1
     }
   },
 };

@@ -31,14 +31,6 @@
           </div>
         </v-col>
       </v-row>
-      <div></div>
-      <div></div>
-      <div>
-        <p>
-          Seen enough already?
-          <br />
-        </p>
-      </div>
     </div>
   </section>
 </template>
