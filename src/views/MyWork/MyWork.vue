@@ -10,6 +10,7 @@
       class="h-100"
       style="min-width: calc(100vw / 12 * 4)"
       :projects="projects"
+      :locked="locked"
       @project-change="projectChangeHandler"
     />
     <div class="h-100 flex-grow-1 py-8 px-16 d-flex align-center">
@@ -66,6 +67,11 @@ export default {
     return {
       projects,
       activeProject: 0,
+      locked: false,
+      oldProject: {
+        words: [],
+        photo: ""
+      }
     };
   },
   components: {
@@ -77,6 +83,14 @@ export default {
       this.activeProject = i;
     },
   },
+  watch:{
+    activeProject:{
+      deep: true,
+      handler(){
+        this.locked = true
+      }
+    }
+  }
 };
 </script>
 

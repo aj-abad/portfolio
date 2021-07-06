@@ -18,7 +18,9 @@
         data-scroll
         :data-scroll-delay="`${i * 100}`"
       >
-        <button class="project-name w-100 text-left" @click="selectProject(i)">{{ project.name }}</button>
+        <button class="project-name w-100 text-left" @click="selectProject(i)">
+          {{ project.name }}
+        </button>
 
         <span
           class="project-name-active"
@@ -40,8 +42,9 @@
 <script>
 export default {
   name: "ProjectList",
-  props:{
-    projects: Array
+  props: {
+    projects: Array,
+    locked: Boolean,
   },
   data() {
     return {
@@ -67,10 +70,11 @@ export default {
       if (this.spanTranslate > this.spanWidth) this.spanTranslate = 0;
       window.requestAnimationFrame(() => this.animateSpan());
     },
-    selectProject(i){
-      this.$store.commit("setProject", {project: i})
-      this.$emit("project-change", i)
-    }
+    selectProject(i) {
+      if (this.locked) return false;
+      this.$store.commit("setProject", { project: i });
+      this.$emit("project-change", i);
+    },
   },
 };
 </script>
@@ -109,7 +113,7 @@ ul {
   font-style: italic;
   transform: translateX(calc(-10% + 6px));
   user-select: none;
-  pointer-events none
+  pointer-events: none;
 }
 
 .project-name-active span {
