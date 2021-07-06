@@ -66,7 +66,7 @@ export default {
   data() {
     return {
       projects,
-      activeProject: 0,
+      activeProject: 2,
       locked: false,
       oldProject: {
         words: [],
