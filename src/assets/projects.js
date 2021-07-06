@@ -1,12 +1,12 @@
-import curaTxt from "raw-loader!../assets/txt/cura.txt"
+import curaTxt from "raw-loader!../assets/txt/projects/cura.txt"
 const cura = curaTxt.split("\n").filter(e => e.length > 2)
-import fightTxt from "raw-loader!../assets/txt/fightthepower.txt"
+import fightTxt from "raw-loader!../assets/txt/projects/fightthepower.txt"
 const fight = fightTxt.split("\n").filter(e => e.length > 2)
-import saltTxt from "raw-loader!../assets/txt/ateneosalt.txt"
+import saltTxt from "raw-loader!../assets/txt/projects/ateneosalt.txt"
 const salt = saltTxt.split("\n").filter(e => e.length > 2)
-import kixoTxt from "raw-loader!../assets/txt/kixothermic.txt"
+import kixoTxt from "raw-loader!../assets/txt/projects/kixothermic.txt"
 const kixo = kixoTxt.split("\n").filter(e => e.length > 2)
-import hallyuTxt from "raw-loader!../assets/txt/hallyulator.txt"
+import hallyuTxt from "raw-loader!../assets/txt/projects/hallyulator.txt"
 const hallyu = hallyuTxt.split("\n").filter(e => e.length > 2)
 
 
