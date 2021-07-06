@@ -33,11 +33,13 @@
             <div class="img-inner">
               <div class="noise"></div>
               <div
+                v-if="!animating"
                 id="project-photo"
                 :style="`background-image: url('img/projects/${
                   projects[activeProject].photo
                 }'); left: ${-250 + 250 * progress}px`"
               ></div>
+              <div id="old-project-photo"></div>
             </div>
           </a>
         </div>
@@ -47,6 +49,7 @@
             :word1="projects[activeProject].words[0]"
             :word2="projects[activeProject].words[1]"
             :strokeOnly="false"
+            @animationdone="locked = false"
           />
         </div>
       </div>
@@ -67,11 +70,9 @@ export default {
     return {
       projects,
       activeProject: 2,
+      animating: false,
       locked: false,
-      oldProject: {
-        words: [],
-        photo: ""
-      }
+      oldPhoto: ""
     };
   },
   components: {
@@ -83,14 +84,13 @@ export default {
       this.activeProject = i;
     },
   },
-  watch:{
-    activeProject:{
-      deep: true,
-      handler(){
-        this.locked = true
-      }
-    }
-  }
+  watch: {
+    activeProject(newVal, oldVal) {
+      console.log(newVal, oldVal);
+      this.locked = true;
+      this.animating = true;
+    },
+  },
 };
 </script>
 
@@ -130,6 +130,16 @@ export default {
 
 #project-photo {
   position: relative;
+  height: 120%;
+  width: calc(100% + 250px);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  transition: transform 0.4s, height 0.4s;
+}
+
+#old-project-photo {
+  position: absolute;
   height: 120%;
   width: calc(100% + 250px);
   background-size: cover;
