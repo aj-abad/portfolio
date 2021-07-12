@@ -25,7 +25,7 @@
         </div>
       </section>
       <project-details />
-      <contact-illustration :contactIllustrationProgress="contactIllustrationProgress" :contactProgress="contactProgress" />
+      <contact-illustration :scrollSpeed="scrollSpeed" :contactIllustrationProgress="contactIllustrationProgress" :contactProgress="contactProgress" />
       <div style="min-width: 100vw" data-scroll data-scroll-id="contactSpacer">
         <contact :contactProgress="contactProgress" />
       </div>

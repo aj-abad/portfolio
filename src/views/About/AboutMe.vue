@@ -28,6 +28,11 @@
             <p style="transition-delay: 0.8s">
               I am currently an information systems student working freelance.
             </p>
+            <p>
+              <a href="#">
+                View my resume ->
+              </a>
+            </p>
           </div>
         </v-col>
       </v-row>
@@ -74,10 +79,5 @@ export default {
   #about-me-illustration {
     min-width: calc(100vw / 12 * 4);
   }
-}
-
-.about-content {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
 }
 </style>

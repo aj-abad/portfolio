@@ -16,13 +16,13 @@
   >
     <div class="position-relative" :style="`left: calc(${(progress - 1) * 50}vw + ${offset}px);`">
       <h1 class="display w-100">
-        <span :style="`margin-left: ${0 * progress}vw`">Let's</span>
+        <span :style="`margin-left: ${(0 * progress) - (offset/25) }vw`">Let's</span>
       </h1>
       <h1 class="display w-100">
-        <span :style="`margin-left: ${12.5 * progress}vw`">Work</span>
+        <span :style="`margin-left: ${(12.5 * progress) - (offset/50)}vw`">Work</span>
       </h1>
       <h1 class="display w-100">
-        <span :style="`margin-left: ${25 * progress}vw`">Together</span>
+        <span :style="`margin-left: ${(25 * progress) - (offset/75)}vw`">Together</span>
       </h1>
     </div>
   </div>

@@ -4,9 +4,6 @@
     aria-label="My Work"
     style="border-left: 2px solid black; border-right: 2px solid black"
   >
-    <div class="w-100 position-absolute" style="top: 0; left: 0">
-      <span class="display">01</span>
-    </div>
     <ul class="display">
       <li
         class="position-relative my-6"

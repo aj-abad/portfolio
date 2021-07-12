@@ -93,7 +93,7 @@ export default {
   watch: {
     progress() {
       const start = 0.125;
-      const end = 0.4;
+      const end = 0.35;
       const clipEnd = 0.5;
       const maxClipRadius = 454.8;
       if (this.progress < start) return false;

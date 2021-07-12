@@ -74,7 +74,7 @@ export default {
         targets: "#word-1-container",
         translateY: -window.innerHeight * 1.5,
         duration,
-        easing: "easeInSine",
+        easing: "easeInQuad",
         complete() {
           anime.set("#word-1-container", {
             translateY: window.innerHeight * 1.5,
@@ -84,7 +84,7 @@ export default {
             targets: "#word-1-container",
             translateY: 0,
             duration,
-            easing: "easeOutSine",
+            easing: "easeOutQuad",
             complete() {
               deez.$emit("animationdone");
             },
@@ -100,7 +100,7 @@ export default {
         targets: "#word-2-container",
         translateY: window.innerHeight * 1.5,
         duration,
-        easing: "easeInSine",
+        easing: "easeInQuad",
         complete() {
           anime.set("#word-2-container", {
             translateY: -window.innerHeight * 1.5,
@@ -111,7 +111,7 @@ export default {
             targets: "#word-2-container",
             translateY: 0,
             duration,
-            easing: "easeOutSine",
+            easing: "easeOutQuad",
           });
         },
       });

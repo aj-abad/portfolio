@@ -33,13 +33,16 @@
             <div class="img-inner">
               <div class="noise"></div>
               <div
-                v-if="!animating"
                 id="project-photo"
                 :style="`background-image: url('img/projects/${
                   projects[activeProject].photo
-                }'); left: ${-250 + 250 * progress}px`"
+                }'); left: ${-250 + 250 * progress}px;`"
               ></div>
-              <div id="old-project-photo"></div>
+              <div
+                id="old-project-photo"
+                v-if="animating"
+                :style="`background-image: url('img/projects/${oldPhoto}'); left: ${-250 + 250 * progress}px`"
+              ></div>
             </div>
           </a>
         </div>
@@ -61,6 +64,7 @@
 import projects from "@/assets/projects";
 import ProjectList from "@/views/MyWork/ProjectList";
 import ProjectName from "@/components/ProjectName";
+import anime from "animejs/lib/anime.es";
 export default {
   name: "MyWork",
   props: {
@@ -72,7 +76,7 @@ export default {
       activeProject: 2,
       animating: false,
       locked: false,
-      oldPhoto: ""
+      oldPhoto: "",
     };
   },
   components: {
@@ -87,8 +91,17 @@ export default {
   watch: {
     activeProject(newVal, oldVal) {
       console.log(newVal, oldVal);
+      this.oldPhoto = this.projects[oldVal].photo;
       this.locked = true;
       this.animating = true;
+      anime.set("#project-photo", { top: "100%" });
+
+      anime({
+        targets: "#project-photo",
+        top: "0%",
+        duration: 800,
+        easing: "cubicBezier(0.85,0,0.15,1)"
+      })
     },
   },
 };
@@ -121,7 +134,7 @@ export default {
   left: 0;
   background: var(--bg-dark);
   opacity: 0.25;
-  z-index: 1;
+  z-index: 3;
 }
 
 .project-name {
@@ -135,11 +148,13 @@ export default {
   background-size: cover;
   background-position: center;
   transform: scale(1.02);
+  z-index 1
   transition: transform 0.4s, height 0.4s;
 }
 
 #old-project-photo {
   position: absolute;
+  top 0
   height: 120%;
   width: calc(100% + 250px);
   background-size: cover;
@@ -156,7 +171,11 @@ export default {
   position: absolute;
   bottom: -10vh;
   left: 12.5%;
-  z-index: 2;
+  z-index: 5;
+
+  &.stroke{
+    z-index: 20
+  }
 }
 
 .project-description {

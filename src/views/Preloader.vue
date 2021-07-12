@@ -1,6 +1,6 @@
 <template>
-  <div id="_preloader">
-    <img style="width: 1px; position absolute" :src="`img/projects/${project.photo}`" v-for="(project, i) in projects" :key="i">
+  <div id="_preloader" aria-hidden="true">
+    <img aria-hidden="true" style="width: 1px; position absolute" :src="`img/projects/${project.photo}`" v-for="(project, i) in projects" :key="i" :alt="`${project.name}`">
   </div>
 </template>
 

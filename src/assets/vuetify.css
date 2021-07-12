@@ -2,6 +2,10 @@
     --main-font: "roc grotesk", sans-serif;
 }
 
+.v-input__control textarea {
+    max-height: calc(1rem * 12);
+}
+
 .theme--light.v-application {
     background: var(--bg);
     color: rgba(0, 0, 0, 0.87);
