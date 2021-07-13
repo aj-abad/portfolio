@@ -32,16 +32,13 @@
 
             <div class="img-inner">
               <div class="noise"></div>
-              <div
-                id="project-photo"
-                :style="`background-image: url('img/projects/${
-                  projects[activeProject].photo
-                }'); left: ${-250 + 250 * progress}px;`"
-              ></div>
+              <div id="project-photo" :style="projectPhotoStyle"></div>
               <div
                 id="old-project-photo"
                 v-if="animating"
-                :style="`background-image: url('img/projects/${oldPhoto}'); left: ${-250 + 250 * progress}px`"
+                :style="`background-image: url('img/projects/${oldPhoto}'); left: ${
+                  -250 + 250 * progress
+                }px`"
               ></div>
             </div>
           </a>
@@ -77,7 +74,17 @@ export default {
       animating: false,
       locked: false,
       oldPhoto: "",
+      clip: 0
     };
+  },
+  computed: {
+    projectPhotoStyle() {
+      return `background-image: url('img/projects/${
+        this.projects[this.activeProject].photo
+      }'); 
+      left: ${-250 + 250 * this.progress}px; 
+      -webkit-clip-path: polygon(0 ${this.clip}%, 100% ${this.clip}%, 100% 100%, 0 100%)`;
+    },
   },
   components: {
     ProjectList,
@@ -94,14 +101,17 @@ export default {
       this.oldPhoto = this.projects[oldVal].photo;
       this.locked = true;
       this.animating = true;
-      anime.set("#project-photo", { top: "100%" });
-
+      anime.set(this, {clip: 90});
+      const deez = this
       anime({
-        targets: "#project-photo",
-        top: "0%",
+        targets: this,
+        clip: 0,
         duration: 800,
-        easing: "cubicBezier(0.85,0,0.15,1)"
-      })
+        easing: "cubicBezier(0.85,0,0.15,1)",
+        complete(){
+          deez.animating = false
+        }
+      });
     },
   },
 };
@@ -148,13 +158,13 @@ export default {
   background-size: cover;
   background-position: center;
   transform: scale(1.02);
-  z-index 1
+  z-index: 1;
   transition: transform 0.4s, height 0.4s;
 }
 
 #old-project-photo {
   position: absolute;
-  top 0
+  top: 0;
   height: 120%;
   width: calc(100% + 250px);
   background-size: cover;
@@ -173,8 +183,8 @@ export default {
   left: 12.5%;
   z-index: 5;
 
-  &.stroke{
-    z-index: 20
+  &.stroke {
+    z-index: 20;
   }
 }
 
