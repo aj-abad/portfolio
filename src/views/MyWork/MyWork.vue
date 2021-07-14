@@ -5,6 +5,17 @@
     data-scroll-id="myWork"
     style="z-index: 2"
   >
+    <svg style="display: none">
+      <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+        <feTurbulence
+          id="sea-filter"
+          numOctaves="1"
+          seed="2424"
+          :baseFrequency="`${frequency.x} ${frequency.y}`"
+        ></feTurbulence>
+        <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+      </filter>
+    </svg>
     <ProjectList
       id="project-list"
       class="h-100"
@@ -15,7 +26,7 @@
     />
     <div class="h-100 flex-grow-1 py-8 px-16 d-flex align-center">
       <div class="w-100 position-relative">
-        <div class="img-holder">
+        <div class="project-img-container">
           <a target="_blank" href="#">
             <div
               class="text-parallax stroke"
@@ -32,10 +43,19 @@
 
             <div class="img-inner">
               <div class="noise"></div>
-              <div id="project-photo" :style="projectPhotoStyle"></div>
+
+              <div
+                id="project-photo-container"
+                class="h-100 w-100 position-absolute"
+                style="top: 0; left: 0; z-index: 1"
+                :style="` -webkit-clip-path: polygon(0 ${this.clip}%, 100% ${this.clip}%, 100% 100%, 0 100%)`"
+              >
+                <div id="project-photo" :style="projectPhotoStyle"></div>
+              </div>
+
               <div
                 id="old-project-photo"
-                v-if="animating"
+                v-show="animating"
                 :style="`background-image: url('img/projects/${oldPhoto}'); left: ${
                   -250 + 250 * progress
                 }px`"
@@ -74,7 +94,11 @@ export default {
       animating: false,
       locked: false,
       oldPhoto: "",
-      clip: 0
+      clip: 0,
+      frequency: {
+        x: 0.0,
+        y: 0.0,
+      },
     };
   },
   computed: {
@@ -82,8 +106,7 @@ export default {
       return `background-image: url('img/projects/${
         this.projects[this.activeProject].photo
       }'); 
-      left: ${-250 + 250 * this.progress}px; 
-      -webkit-clip-path: polygon(0 ${this.clip}%, 100% ${this.clip}%, 100% 100%, 0 100%)`;
+      left: ${-250 + 250 * this.progress}px; `;
     },
   },
   components: {
@@ -101,16 +124,48 @@ export default {
       this.oldPhoto = this.projects[oldVal].photo;
       this.locked = true;
       this.animating = true;
-      anime.set(this, {clip: 90});
-      const deez = this
+      anime.set(this, { clip: 100 });
+      const deez = this;
+      anime({
+        targets: ".img-inner",
+        scale: 1.025,
+        duration: 400,
+        easing: "easeInQuad",
+        complete() {
+          anime({
+            targets: ".img-inner",
+            scale: 1,
+            duration: 400,
+            easing: "easeOutQuad",
+          });
+        },
+      });
+
+      anime({
+        targets: this.frequency,
+        x: 0.002,
+        y: 0.005,
+        duration: 400,
+        easing: "easeInQuad",
+        complete() {
+          anime({
+            targets: deez.frequency,
+            x: 0.0,
+            y: 0.0,
+            duration: 400,
+            easing: "easeOutQuad",
+          });
+        },
+      });
+
       anime({
         targets: this,
         clip: 0,
         duration: 800,
         easing: "cubicBezier(0.85,0,0.15,1)",
-        complete(){
-          deez.animating = false
-        }
+        complete() {
+          deez.animating = false;
+        },
       });
     },
   },
@@ -118,12 +173,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.img-holder {
+.project-img-container {
   position: relative;
   width: 100%;
   padding-top: calc((100% * 2 / 3));
   overflow: hidden;
   z-index: 12;
+  // filter: url('#turbulence');
 }
 
 .img-inner {
@@ -148,23 +204,11 @@ export default {
 }
 
 .project-name {
-  height: 125vh;
+  height: 61vw;
 }
 
-#project-photo {
-  position: relative;
-  height: 120%;
-  width: calc(100% + 250px);
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.02);
-  z-index: 1;
-  transition: transform 0.4s, height 0.4s;
-}
-
-#old-project-photo {
+#project-photo, #old-project-photo {
   position: absolute;
-  top: 0;
   height: 120%;
   width: calc(100% + 250px);
   background-size: cover;
@@ -173,7 +217,7 @@ export default {
   transition: transform 0.4s, height 0.4s;
 }
 
-.img-holder:hover #project-photo {
+.project-img-container:hover #project-photo {
   transform: scale(1);
 }
 
