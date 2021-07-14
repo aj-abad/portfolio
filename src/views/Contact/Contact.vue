@@ -138,11 +138,9 @@ export default {
   methods: {
     focusHandler() {
       this.$store.commit("toggleLock", { locked: true });
-      console.log(document.activeElement);
     },
     focusOutHandler() {
       this.$store.commit("toggleLock", { locked: false });
-      console.log(document.activeElement);
     },
   },
 };

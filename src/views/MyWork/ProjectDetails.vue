@@ -4,7 +4,11 @@
     style="z-index: 2; border-right: 2px solid var(--bg-dark) !important"
   >
     <div class="secondary d-flex h-100 align-center project-caption">
-      <p class="mb-0 mr-8 text-justify" v-html="project.content.description"></p>
+      <p
+        id="project-description"
+        class="mb-0 mr-8 text-justify"
+        v-html="description"
+      ></p>
       <arrow style="min-width: 6rem; max-width: 6rem; display: inline-block" />
     </div>
     <case-study-grid :project="project" />
@@ -29,7 +33,10 @@ export default {
   computed: {
     project() {
       const i = this.$store.getters.getProject;
-      return this.projects[i]
+      return this.projects[i];
+    },
+    description() {
+      return this.project.content.description;
     },
   },
 };

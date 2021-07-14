@@ -27,7 +27,7 @@
     <div class="h-100 flex-grow-1 py-8 px-16 d-flex align-center">
       <div class="w-100 position-relative">
         <div class="project-img-container">
-          <a target="_blank" href="#">
+          <a target="_blank" :href="`${projects[activeProject].links.site}`">
             <div
               class="text-parallax stroke"
               data-scroll
@@ -90,7 +90,7 @@ export default {
   data() {
     return {
       projects,
-      activeProject: 2,
+      activeProject: 0,
       animating: false,
       locked: false,
       oldPhoto: "",
@@ -120,7 +120,7 @@ export default {
   },
   watch: {
     activeProject(newVal, oldVal) {
-      console.log(newVal, oldVal);
+      newVal;
       this.oldPhoto = this.projects[oldVal].photo;
       this.locked = true;
       this.animating = true;
