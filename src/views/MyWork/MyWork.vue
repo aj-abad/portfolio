@@ -120,7 +120,7 @@ export default {
   },
   watch: {
     activeProject(newVal, oldVal) {
-      console.log(newVal, oldVal);
+      newVal;
       this.oldPhoto = this.projects[oldVal].photo;
       this.locked = true;
       this.animating = true;
