@@ -110,12 +110,6 @@ export default {
   z-index: 9999999;
 }
 
-#spinner {
-  height: 15vmin;
-  width: @height;
-  transform: translateX(calc(-50% + 4.5vmin / 2)) translateY(calc(-50% + 4.5vmin / 2));
-}
-
 .visible {
   opacity: 1;
 }
