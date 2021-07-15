@@ -6,21 +6,22 @@
     style="opacity: 0"
   >
     <div
-      class="position-absolute"
-      style="z-index: 10; width: 25vmin; height: 25vmin; opacity: 0"
+      class="position-absolute show-on-link pointer-events-none"
+      style="z-index: 100001; width: 25vmin; height: 25vmin"
       :style="slowFollowCursor"
     >
-   
+    
     </div>
 
     <svg
       id="cursor"
+      class="pointer-events-none"
       aria-hidden="true"
       ref="cursor"
       viewBox="0 0 64 64"
       :style="followCursor"
     >
-      <circle cx="32" cy="32" r="32" fill="white" />
+      <circle cx="32" cy="32" r="32" style="fill: white" />
     </svg>
   </div>
 </template>
@@ -65,7 +66,7 @@ export default {
         this.position.y = e.y;
         this.slowPosition.x = e.x;
         this.slowPosition.y = e.y;
-        this.$refs.main.style.opacity = 1
+        this.$refs.main.style.opacity = 1;
         this.tickerInit();
       }
     });
@@ -107,10 +108,14 @@ export default {
   width: @height;
   mix-blend-mode: difference;
   position: absolute;
-  z-index: 9999999;
+  z-index: 100000;
 }
 
-.visible {
+.on-link .show-on-link {
   opacity: 1;
+}
+
+.show-on-link {
+  opacity: 0;
 }
 </style>

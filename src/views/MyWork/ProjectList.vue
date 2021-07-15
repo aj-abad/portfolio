@@ -2,7 +2,6 @@
   <section
     class="position-relative pa-4 d-flex flex-column justify-center"
     aria-label="My Work"
-    style="border-left: 2px solid black; border-right: 2px solid black"
   >
     <ul class="display">
       <li
@@ -115,5 +114,23 @@ ul {
 
 .project-name-active span {
   display: inline-block;
+}
+
+section::before, section::after {
+  content: '';
+  height: 100%;
+  width: 2rem;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-dark) 20%, transparent);
+}
+
+section::after { right: 0;
+  background: linear-gradient(to left, var(--bg-dark) 20%, transparent);
 }
 </style>
