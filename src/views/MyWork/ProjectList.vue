@@ -14,7 +14,7 @@
         data-scroll
         :data-scroll-delay="`${i * 100}`"
       >
-        <button class="project-name w-100 text-left" @click="selectProject(i)">
+        <button type="button" class="project-name w-100 text-left" @click="selectProject(i)">
           {{ project.name }}
         </button>
 

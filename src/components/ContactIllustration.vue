@@ -1,6 +1,7 @@
 <template>
   <div
     class="
+      contact-section
       h-100vh
       w-100vw
       position-relative
@@ -59,6 +60,20 @@ h1 {
 
   & span {
     display: inline-block;
+  }
+}
+
+
+.contact-section{
+  &::before{
+    content: ''
+    position absolute
+    top 0
+    right -50px
+    height 100%
+    width 100px
+    background var(--bg-dark)
+    pointer-events none
   }
 }
 </style>

@@ -5,7 +5,7 @@
   >
     <v-row>
       <v-col class="col-6">
-        <h1 class="display mb-4">Contact</h1>
+        <h1 class="mb-n4">Contact</h1>
         <p class="mb-8">
           I'm always looking to work with amazing people. Hit me up to tell me
           about your project or just say hi.
