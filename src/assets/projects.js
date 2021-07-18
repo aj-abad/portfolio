@@ -22,7 +22,9 @@ const projects = [{
         links: {
             site: "https://cura-demo.netlify.app",
             repo: null,
-            caseStudy: "cura"
+            repoReason: "Private",
+            caseStudy: null,
+            caseStudyReason: "Coming Soon",
         }
     },
     {
@@ -37,7 +39,9 @@ const projects = [{
         links: {
             site: "https://fightthepower.netlify.app",
             repo: null,
-            caseStudy: "fighthepower"
+            caseStudy: null,
+            caseStudyReason: "Coming Soon",
+            repoReason: "Coming Soon"
         }
     },
     {
@@ -52,7 +56,9 @@ const projects = [{
         links: {
             site: "https://ateneosaltprototype.netlify.app",
             repo: null,
-            caseStudy: "ateneosalt"
+            caseStudy: null,
+            caseStudyReason: "Coming Soon",
+            repoReason: "Coming Soon"
         }
     },
     {
@@ -67,7 +73,9 @@ const projects = [{
         links: {
             site: "https://kixothermic.netlify.app",
             repo: null,
-            caseStudy: "kixothermic"
+            caseStudy: null,
+            caseStudyReason: "Coming Soon",
+            repoReason: "Coming Soon"
         }
     },
     {
@@ -82,7 +90,9 @@ const projects = [{
         links: {
             site: "https://hallyulator.netlify.app",
             repo: null,
-            caseStudy: "hallyulator"
+            caseStudy: null,
+            caseStudyReason: "Not Available",
+            repoReason: "Coming Soon"
         }
     },
 ]

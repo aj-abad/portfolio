@@ -13,13 +13,20 @@
       </div>
       <div class="links">
         <router-link
-          :to="`/casestudy/${project.links.caseStudy}`"
-          class="link d-flex justify-center align-center"
+          :to="
+            project.links.caseStudy
+              ? `/casestudy/${project.links.caseStudy}`
+              : '/'
+          "
+          class="link d-flex justify-center align-center flex-column"
+          :class="{ disabled: !project.links.repo }"
+          :tabindex="!project.links.caseStudy ? -1 : null"
         >
-               <div
+          <div
             class="hover-dark position-absolute h-100 w-100"
             style="top: 0; left: 0"
             aria-hidden="true"
+            v-if="project.links.caseStudy"
           >
             <div class="h-100 w-100 d-flex justify-center align-center">
               <h6>
@@ -34,12 +41,15 @@
           </div>
           <h6>
             Case Study
-            <svg viewBox="0 0 11 11" class="arrow right">
+            <svg viewBox="0 0 11 11" class="arrow right"    v-if="project.links.caseStudy">
               <polygon
                 points="3 0 3 2 7.59 2 0.64 8.95 2.05 10.36 9 3.41 9 8 11 8 11 0 3 0"
               />
             </svg>
           </h6>
+            <p v-if="!project.links.caseStudy">
+            <strong> ({{ project.links.caseStudyReason }})</strong>
+          </p>
         </router-link>
         <a
           target="_blank"
@@ -76,14 +86,18 @@
           target="_blank"
           rel="noopener"
           :href="project.links.repo"
-          class="link d-flex justify-center align-center"
+          class="link d-flex justify-center align-center flex-column"
+          :class="{ disabled: !project.links.repo }"
         >
-               <div
+          <div
             class="hover-dark position-absolute h-100 w-100"
             style="top: 0; left: 0"
             aria-hidden="true"
+            v-if="project.links.repo"
           >
-            <div class="h-100 w-100 d-flex justify-center align-center">
+            <div
+              class="h-100 w-100 d-flex flex-column justify-center align-center"
+            >
               <h6>
                 GitHub Repo
                 <svg viewBox="0 0 11 11" class="arrow">
@@ -96,12 +110,15 @@
           </div>
           <h6>
             GitHub Repo
-            <svg viewBox="0 0 11 11" class="arrow">
+            <svg viewBox="0 0 11 11" class="arrow" v-if="project.links.repo">
               <polygon
                 points="3 0 3 2 7.59 2 0.64 8.95 2.05 10.36 9 3.41 9 8 11 8 11 0 3 0"
               />
             </svg>
           </h6>
+          <p v-if="!project.links.repo">
+            <strong> ({{ project.links.repoReason }})</strong>
+          </p>
         </a>
       </div>
     </div>
@@ -150,7 +167,8 @@ export default {
   }
 
   &:hover {
-    display block
+    display: block;
+
     .hover-dark {
       transform: translateX(0%);
 
@@ -190,5 +208,11 @@ export default {
       fill: var(--text-light);
     }
   }
+}
+
+.disabled {
+  background: url('~@/assets/bg.svg');
+  background-size: 5px 5px;
+  pointer-events: none;
 }
 </style>
