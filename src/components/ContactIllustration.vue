@@ -15,15 +15,24 @@
     data-scroll
     data-scroll-id="contactIllustration"
   >
-    <div class="position-relative" :style="`left: calc(${(progress - 1) * 50}vw + ${offset}px);`">
+    <div
+      class="position-relative"
+      :style="`left: calc(${(progress - 1) * 50}vw + ${offset}px);`"
+    >
       <h1 class="display w-100">
-        <span :style="`margin-left: ${(0 * progress) - (offset/25) }vw`">Let's</span>
+        <span :style="`margin-left: ${0 * progress - offset / 25}vw`"
+          >Let's</span
+        >
       </h1>
       <h1 class="display w-100">
-        <span :style="`margin-left: ${(12.5 * progress) - (offset/50)}vw`">Work</span>
+        <span :style="`margin-left: ${12.5 * progress - offset / 50}vw`"
+          >Work</span
+        >
       </h1>
       <h1 class="display w-100">
-        <span :style="`margin-left: ${(25 * progress) - (offset/75)}vw`">Together</span>
+        <span :style="`margin-left: ${25 * progress - offset / 75}vw`"
+          >Together</span
+        >
       </h1>
     </div>
   </div>
@@ -42,13 +51,13 @@ export default {
     },
     progress() {
       let progress = Math.pow(this.contactIllustrationProgress / 0.5, 1 / 2);
-      progress = progress > 1 ? progress - ((progress - 1) * 3/4) : progress;
+      progress = progress > 1 ? progress - ((progress - 1) * 3) / 4 : progress;
       return progress;
     },
-    offset(){
-      if (this.progress < 1) return 0
-      return Math.pow((this.progress - 1) * 250, 2) * -1
-    }
+    offset() {
+      if (this.progress < 1) return 0;
+      return Math.pow((this.progress - 1) * 250, 2) * -1;
+    },
   },
 };
 </script>
@@ -63,17 +72,23 @@ h1 {
   }
 }
 
+.contact-section {
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    background: var(--bg-dark);
+    pointer-events: none;
+  }
 
-.contact-section{
-  &::before{
-    content: ''
-    position absolute
-    top 0
-    right -50px
-    height 100%
-    width 100px
-    background var(--bg-dark)
-    pointer-events none
+  &::before {
+    right: -50px;
+  }
+
+  &::after {
+    left: -50px
   }
 }
 </style>
