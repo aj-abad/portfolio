@@ -75,7 +75,7 @@ const projects = [{
             repo: null,
             caseStudy: null,
             caseStudyReason: "Coming Soon",
-            repoReason: "Coming Soon"
+            repoReason: "Private"
         }
     },
     {
