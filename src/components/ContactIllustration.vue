@@ -1,7 +1,6 @@
 <template>
   <div
     class="
-      contact-section
       h-100vh
       w-100vw
       position-relative
@@ -14,6 +13,7 @@
     :style="`left: ${left}vw;`"
     data-scroll
     data-scroll-id="contactIllustration"
+    :class="{'no-flickering':contactIllustrationProgress > 0.4}"
   >
     <div
       class="position-relative"
@@ -72,7 +72,7 @@ h1 {
   }
 }
 
-.contact-section {
+.no-flickering {
   &::before, &::after {
     content: '';
     position: absolute;

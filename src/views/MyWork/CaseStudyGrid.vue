@@ -1,6 +1,6 @@
 <template>
   <section class="h-100vh w-100vw py-8 px-16 position-relative">
-    <div class="h-100 case-study-grid">
+    <div class="h-100 project-description-grid">
       <div class="problem-solution">
         <div class="pa-8" style="border-bottom: 2px solid var(--bg-dark)">
           <h6>The Goal</h6>
@@ -135,7 +135,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.case-study-grid {
+.project-description-grid {
   border: 2px solid var(--bg-dark);
   display: grid;
   grid-template: rows;
