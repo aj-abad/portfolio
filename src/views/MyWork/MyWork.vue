@@ -5,17 +5,6 @@
     data-scroll-id="myWork"
     style="z-index: 2"
   >
-    <svg style="display: none">
-      <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-        <feTurbulence
-          id="sea-filter"
-          numOctaves="1"
-          seed="2424"
-          :baseFrequency="`${frequency.x} ${frequency.y}`"
-        ></feTurbulence>
-        <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
-      </filter>
-    </svg>
     <ProjectList
       id="project-list"
       class="h-100"
@@ -95,10 +84,6 @@ export default {
       locked: false,
       oldPhoto: "",
       clip: 0,
-      frequency: {
-        x: 0.0,
-        y: 0.0,
-      },
     };
   },
   computed: {
@@ -135,23 +120,6 @@ export default {
           anime({
             targets: ".img-inner",
             scale: 1,
-            duration: 400,
-            easing: "easeOutQuad",
-          });
-        },
-      });
-
-      anime({
-        targets: this.frequency,
-        x: 0.002,
-        y: 0.005,
-        duration: 400,
-        easing: "easeInQuad",
-        complete() {
-          anime({
-            targets: deez.frequency,
-            x: 0.0,
-            y: 0.0,
             duration: 400,
             easing: "easeOutQuad",
           });
